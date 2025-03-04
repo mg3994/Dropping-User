@@ -165,7 +165,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                                   MyText(
                                     text: widget.dialCode,
                                     textStyle:
-                                        Theme.of(context).textTheme.bodyLarge,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                 ],
                               ),
