@@ -10,6 +10,7 @@ import '../../../landing/presentation/page/landing_page.dart';
 import '../../application/language_bloc.dart';
 import '../../../../app/localization.dart';
 import '../../domain/models/language_listing_model.dart';
+import 'package:dotted_line/dotted_line.dart'; // Add this package // ADDED: BY MG: Dotted line
 
 class ChooseLanguagePage extends StatelessWidget {
   static const String routeName = '/chooseLanguage';
@@ -69,7 +70,7 @@ class ChooseLanguagePage extends StatelessWidget {
                                       Navigator.pop(context);
                                       context.read<LocalizationBloc>().add(
                                           LocalizationInitialEvent(
-                                            isDark: Theme.of(context)
+                                              isDark: Theme.of(context)
                                                       .brightness ==
                                                   Brightness.dark,
                                               locale: Locale(context
@@ -93,6 +94,12 @@ class ChooseLanguagePage extends StatelessWidget {
                                       fontSize: 20,
                                     )),
                           ],
+                        ),
+                        const DottedLine( // ADDED: BY MG: Dotted line
+                          dashLength: 4,
+                          dashGapLength: 4,
+                          lineThickness: 1,
+                          dashColor: Colors.grey,
                         ),
                         SizedBox(height: size.width * 0.02),
                         Expanded(
@@ -140,7 +147,7 @@ class ChooseLanguagePage extends StatelessWidget {
                           LanguageSelectEvent(selectedLanguageIndex: index));
                       context.read<LocalizationBloc>().add(
                           LocalizationInitialEvent(
-                            isDark: Theme.of(context).brightness ==
+                              isDark: Theme.of(context).brightness ==
                                   Brightness.dark,
                               locale: Locale(languageList[index].lang)));
                     },
@@ -193,7 +200,6 @@ class ChooseLanguagePage extends StatelessWidget {
         onTap: () async {
           final selectedIndex = context.read<LanguageBloc>().selectedIndex;
           context.read<LanguageBloc>().add(LanguageSelectUpdateEvent(
-              
               selectedLanguage:
                   AppConstants.languageList.elementAt(selectedIndex).lang));
         },

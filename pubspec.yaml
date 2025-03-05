@@ -109,6 +109,8 @@ dependencies:
   drift: ^2.4.1
   drift_flutter: ^0.2.0
 
+  dotted_line: ^3.2.3
+
 
 
 dev_dependencies:
