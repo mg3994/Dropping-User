@@ -68,4 +68,5 @@ class AppColors {
 
   static const Color whiteText = Color(0xFFFFFFFF);
   static const Color blackText = Color(0xFF000000);
+    static const Color scaffoldBackgroundColor =Color(0xFFEBEBEB);// Added By MG:
 }

@@ -14,7 +14,7 @@ class AppThemes {
       primaryColor: AppColors.primary,
       primaryColorLight: AppColors.secondary,
       primaryColorDark: AppColors.black,
-      scaffoldBackgroundColor: AppColors.white,
+      scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
       dialogBackgroundColor: AppColors.white,
       disabledColor: AppColors.greyHintColor,
       fontFamily: fontFamily,
