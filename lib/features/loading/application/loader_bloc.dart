@@ -14,9 +14,40 @@ part 'loader_state.dart';
 
 class LoaderBloc extends Bloc<LoaderEvent, LoaderState> {
   LoaderBloc() : super(LoaderInitialState()) {
+    on<CheckPermissionEvent>(checkPermission);
     on<LoaderGetLocalDataEvent>(loadData);
     on<UpdateUserLocationEvent>(updateUserLocation);
   }
+
+  bool? locationApproved;
+   recheckLocationPerm() {
+    add(LoaderGetLocalDataEvent());
+  }
+
+  Future<void> checkPermission(
+      CheckPermissionEvent event, Emitter<LoaderState> emit) async {
+    PermissionStatus permission;
+    permission = await Permission.location.status;
+    if (permission == PermissionStatus.denied ||
+        permission == PermissionStatus.permanentlyDenied) {
+      locationApproved = false;
+      emit(LoaderUpdateState());
+    } else {
+      final loginStatus = await AppSharedPreference.getLoginStatus();
+      if (loginStatus) {
+        Position position = await Geolocator.getCurrentPosition(
+            desiredAccuracy: LocationAccuracy.low);
+        double lat = position.latitude;
+        double long = position.longitude;
+        await serviceLocator<LoaderUsecase>()
+            .updateUserLocation(currentLocation: LatLng(lat, long));
+      }
+      locationApproved = true;
+      emit(LoaderLocationSuccessState());
+    }
+  }
+
+
 
   Future<void> loadData(
       LoaderGetLocalDataEvent event, Emitter<LoaderState> emit) async {
@@ -54,4 +85,7 @@ class LoaderBloc extends Bloc<LoaderEvent, LoaderState> {
           message: 'allow location permission to get your current location');
     }
   }
+
+
+  
 }

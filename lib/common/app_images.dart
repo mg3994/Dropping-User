@@ -40,6 +40,9 @@ class AppImages {
   static const String noOutstation = 'assets/images/no_outstation.png';
   static const String sun = 'assets/images/sun.png';
   static const String moon = 'assets/images/moon.png';
+
+   static const String locationImage = ' allow_location_permission.png';
+
   // SVG
   static const String hi = 'assets/svg/hi.svg';
   // Gif
