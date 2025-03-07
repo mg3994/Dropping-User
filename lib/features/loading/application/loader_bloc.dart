@@ -28,11 +28,14 @@ class LoaderBloc extends Bloc<LoaderEvent, LoaderState> {
       CheckPermissionEvent event, Emitter<LoaderState> emit) async {
     PermissionStatus permission;
     permission = await Permission.location.status;
-    if (permission == PermissionStatus.denied ||
+    if (
         permission == PermissionStatus.permanentlyDenied) {
       locationApproved = false;
       emit(LoaderUpdateState());
-    } else {
+    } else if(permission == PermissionStatus.denied){
+      locationApproved = null;
+      // emit(LoaderUpdateState());
+    }else {
       final loginStatus = await AppSharedPreference.getLoginStatus();
       if (loginStatus) {
         Position position = await Geolocator.getCurrentPosition(
