@@ -365,5 +365,13 @@
             "getYourCurrentLocation": "allow location permission to get your current location",
             "serviceNotAvailable": "Service not available for this location",
             "cancellationFee": "Cancellation Fee",
-            "maximumRideFareError":"Offer ride fare must lesser than maximum fare."
+            "maximumRideFareError":"Offer ride fare must lesser than maximum fare.",
+
+            "welcomeToName": "Welcome to 1111",
+            "allow": "Allow",
+            "locationPermDesc": "To ensure a smooth and hassle-free booking experience, kindly provide us with the following access:",
+            "allowLocation": "Allow Location"
+
+       
+       
         }

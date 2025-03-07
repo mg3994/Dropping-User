@@ -365,5 +365,11 @@
             "getYourCurrentLocation": "permitir permiso de ubicación para obtener su ubicación actual",
             "serviceNotAvailable": "Servicio no disponible para esta ubicación",
             "cancellationFee": "Tarifa de cancelación",
-            "maximumRideFareError":"La tarifa del viaje de oferta debe ser inferior a la tarifa máxima."
+            "maximumRideFareError":"La tarifa del viaje de oferta debe ser inferior a la tarifa máxima.",
+
+            "welcomeToName": "Bienvenido a 1111",
+            "allow": "Permitir",
+             "locationPermDesc": "Para garantizar una experiencia de reserva fluida y sin complicaciones, proporciónenos el siguiente acceso:",
+             "allowLocation": "Permitir ubicación"
+        
         }

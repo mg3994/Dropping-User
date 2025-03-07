@@ -1108,4 +1108,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get maximumRideFareError => 'Le tarif du trajet proposé doit être inférieur au tarif maximum.';
+
+  @override
+  String get welcomeToName => 'Bienvenue au 1111';
+
+  @override
+  String get allow => 'Permettre';
+
+  @override
+  String get locationPermDesc => 'Pour garantir une expérience de réservation fluide et sans tracas, veuillez nous fournir l\'accès suivant :';
+
+  @override
+  String get allowLocation => 'Autoriser la localisation';
 }

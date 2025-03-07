@@ -223,7 +223,7 @@ class AuthPage extends StatelessWidget {
                               .toString())) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 3),
+                              horizontal: 8, vertical: 3),
                           child: InkWell(
                             onTap: () {
                               set(() {

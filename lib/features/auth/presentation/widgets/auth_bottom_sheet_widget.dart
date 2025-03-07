@@ -10,6 +10,8 @@ import '../../../../core/utils/custom_text.dart';
 import '../../../../core/utils/custom_textfield.dart';
 import '../../../../core/utils/functions.dart';
 import '../../../../l10n/app_localizations.dart';
+import 'package:dotted_line/dotted_line.dart'; // Add this package // ADDED: BY MG: Dotted line
+
 
 class AuthBottomSheetWidget extends StatefulWidget {
   final TextEditingController emailOrMobile;
@@ -108,19 +110,28 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                       textStyle: Theme.of(context)
                           .textTheme
                           .titleLarge!
-                          .copyWith(fontSize: 20),
+                          .copyWith(fontSize:14),// Modified: by MG: Font size
                     ),
                     const SizedBox(width: 10),
                     SvgPicture.asset(AppImages.hi, height: 20, width: 25)
                   ],
                 ),
-                SizedBox(height: size.width * 0.05),
+                 SizedBox(height: size.width * 0.04),
+                   DottedLine( // ADDED: BY MG: Dotted line
+                          dashLength: 2,
+                          dashGapLength: 2,
+                          dashRadius: 1,
+                          lineThickness: 1,
+                          dashColor: Theme.of(context).dividerColor,
+                        ),
+                SizedBox(height: size.width * 0.04),
                 MyText(
                   text:
                       '${AppLocalizations.of(context)!.email}/${AppLocalizations.of(context)!.mobile}',
                   textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: AppColors.darkGrey,
                         fontWeight: FontWeight.bold,
+                        fontSize:10                            // Modified By MG:
                       ),
                 ),
                 SizedBox(height: size.width * 0.02),
@@ -144,6 +155,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                                     height: 20,
                                     width: 25,
                                     margin: const EdgeInsets.all(2),
+                                    // padding: const EdgeInsets.symmetric(horizontal: 2),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.rectangle,
                                       color: Theme.of(context).disabledColor,
@@ -165,7 +177,8 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                                   MyText(
                                     text: widget.dialCode,
                                     textStyle:
-                                        Theme.of(context).textTheme.bodyMedium,
+                                        Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold, fontSize: 13), // Modified By MG:
+
                                   ),
                                 ],
                               ),
@@ -193,7 +206,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                 Center(
                   child: CustomButton(
                     buttonName: AppLocalizations.of(context)!.continueN,
-                    borderRadius: 18,
+                    borderRadius: 2,
                     width: size.width,
                     height: size.width * 0.12,
                     textColor: AppColors.white,
@@ -221,6 +234,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                             .textTheme
                             .bodyMedium!
                             .copyWith(
+                              fontSize: 8, // Modified By MG:
                                 color: AppColors.darkGrey,
                                 fontWeight: FontWeight.normal),
                       ),
@@ -234,6 +248,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                               .textTheme
                               .bodyMedium!
                               .copyWith(
+                                 fontSize: 8, // Modified By MG:
                                   fontWeight: FontWeight.normal,
                                   decoration: TextDecoration.underline),
                         ),
@@ -242,6 +257,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                         text: AppLocalizations.of(context)!.and,
                         textStyle:
                             Theme.of(context).textTheme.bodyMedium!.copyWith(
+                               fontSize: 8, // Modified By MG:
                                   color: AppColors.darkGrey,
                                   fontWeight: FontWeight.normal,
                                 ),
@@ -257,6 +273,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                               .textTheme
                               .bodyMedium!
                               .copyWith(
+                                 fontSize: 8, // Modified By MG:
                                   fontWeight: FontWeight.normal,
                                   decoration: TextDecoration.underline),
                         ),

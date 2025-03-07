@@ -365,5 +365,9 @@
             "getYourCurrentLocation": "السماح إذن الموقع للحصول على موقعك الحالي",
             "serviceNotAvailable": "الخدمة غير متوفرة لهذا الموقع",
             "cancellationFee": "رسوم الإلغاء",
-            "maximumRideFareError":"يجب أن تكون أجرة الرحلة أقل من الحد الأقصى للأجرة."
+            "maximumRideFareError":"يجب أن تكون أجرة الرحلة أقل من الحد الأقصى للأجرة.",
+             "welcomeToName": "مرحبا بكم في 1111",
+            "allow": "يسمح",
+             "locationPermDesc": "لضمان تجربة حجز سلسة وخالية من المتاعب، يرجى تزويدنا بإمكانية الوصول التالية:",
+             "allowLocation": "السماح بالموقع"
         }

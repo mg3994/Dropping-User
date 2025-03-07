@@ -1108,4 +1108,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get maximumRideFareError => 'Offer ride fare must lesser than maximum fare.';
+
+  @override
+  String get welcomeToName => 'Welcome to 1111';
+
+  @override
+  String get allow => 'Allow';
+
+  @override
+  String get locationPermDesc => 'To ensure a smooth and hassle-free booking experience, kindly provide us with the following access:';
+
+  @override
+  String get allowLocation => 'Allow Location';
 }

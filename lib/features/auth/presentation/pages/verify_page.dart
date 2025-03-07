@@ -126,8 +126,9 @@ class _VerifyPageState extends State<VerifyPage>
                     : TextDirection.ltr,
                 child: Scaffold(
                   resizeToAvoidBottomInset: true,
-                  body: CustomBackground(
-                    child: SafeArea(
+                  body:
+                   CustomBackground(child:
+                   SafeArea(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Column(
@@ -363,7 +364,7 @@ class _VerifyPageState extends State<VerifyPage>
           animationType: AnimationType.fade,
           pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(4),
             fieldHeight: 45,
             fieldWidth: 45,
             activeFillColor: Theme.of(context).scaffoldBackgroundColor,
@@ -433,7 +434,7 @@ class _VerifyPageState extends State<VerifyPage>
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
           child: CustomButton(
-            borderRadius: 10,
+            borderRadius: 2,
             height: MediaQuery.of(context).size.height * 0.06,
             buttonName: (!widget.arg.userExist)
                 ? AppLocalizations.of(context)!.confirm

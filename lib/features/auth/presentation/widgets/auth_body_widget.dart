@@ -50,11 +50,11 @@ class AuthBodyWidget extends StatelessWidget {
                                   .bodyMedium!
                                   .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      color: Theme.of(context).primaryColor)),
+                                      color: Theme.of(context).primaryColorDark)),
                           Icon(Icons.language_outlined,
-                              color: Theme.of(context).primaryColor),
+                              color: Theme.of(context).primaryColorDark),
                           Icon(Icons.arrow_drop_down,
-                              color: Theme.of(context).primaryColor),
+                              color: Theme.of(context).primaryColorDark),
                         ],
                       ),
                     )

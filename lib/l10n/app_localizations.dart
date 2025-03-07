@@ -2300,6 +2300,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Offer ride fare must lesser than maximum fare.'**
   String get maximumRideFareError;
+
+  /// No description provided for @welcomeToName.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to 1111'**
+  String get welcomeToName;
+
+  /// No description provided for @allow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get allow;
+
+  /// No description provided for @locationPermDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'To ensure a smooth and hassle-free booking experience, kindly provide us with the following access:'**
+  String get locationPermDesc;
+
+  /// No description provided for @allowLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Location'**
+  String get allowLocation;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

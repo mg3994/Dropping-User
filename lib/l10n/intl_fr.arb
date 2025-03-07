@@ -368,5 +368,10 @@
     "yourDriverIsText": "Votre chauffeur est",
     "cancellationFee": "Frais d'annulation",
     "demoOtpText": "Connectez-vous à votre compte avec le test OTP 123456",
-    "maximumRideFareError":"Le tarif du trajet proposé doit être inférieur au tarif maximum."
+    "maximumRideFareError":"Le tarif du trajet proposé doit être inférieur au tarif maximum.",
+
+    "welcomeToName": "Bienvenue au 1111",
+    "allow": "Permettre",
+     "locationPermDesc": "Pour garantir une expérience de réservation fluide et sans tracas, veuillez nous fournir l'accès suivant :",
+      "allowLocation": "Autoriser la localisation"
 }

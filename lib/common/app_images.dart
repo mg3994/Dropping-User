@@ -40,8 +40,8 @@ class AppImages {
   static const String noOutstation = 'assets/images/no_outstation.png';
   static const String sun = 'assets/images/sun.png';
   static const String moon = 'assets/images/moon.png';
-
-   static const String locationImage = ' allow_location_permission.png';
+// Added: By MG:
+  static const String locationImage = 'assets/images/allow_location_permission.png';
 
   // SVG
   static const String hi = 'assets/svg/hi.svg';
@@ -73,4 +73,7 @@ class AppImages {
   static const String unionPay = 'assets/images/unionPay.png';
   static const String discover = 'assets/images/discover.png';
   static const String eftpos = 'assets/images/eftpos.png';
+
+    static const String allowLocationIcon =
+      'assets/images/location_permission.png'; //Added By MG:
 }

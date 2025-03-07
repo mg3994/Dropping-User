@@ -74,7 +74,7 @@ class _LandingPageState extends State<LandingPage> {
                                     width: size.width,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
-                                      color: Theme.of(context).primaryColor,
+                                      color: Theme.of(context).hintColor,
                                     ),
                                   ),
                                   SizedBox(height: size.height * 0.16),

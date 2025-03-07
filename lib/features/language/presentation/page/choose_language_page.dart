@@ -93,15 +93,17 @@ class ChooseLanguagePage extends StatelessWidget {
                                     .titleSmall! // Changeset: BY MG: from Large
                                     .copyWith(
                                       color: AppColors.black,
-                                      fontSize: 20,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold
                                     )),
                           ],
                         ),
-                        const DottedLine( // ADDED: BY MG: Dotted line
-                          dashLength: 4,
-                          dashGapLength: 4,
+                        DottedLine( // ADDED: BY MG: Dotted line
+                         dashLength: 2,
+                          dashGapLength: 2,
+                          dashRadius: 1,
                           lineThickness: 1,
-                          dashColor: Colors.grey,
+                          dashColor: Theme.of(context).dividerColor,
                         ),
                         SizedBox(height: size.width * 0.02),
                         Expanded(
@@ -157,7 +159,7 @@ class ChooseLanguagePage extends StatelessWidget {
                       height: 50,
                       width: size.width,
                       decoration: BoxDecoration(
-                        color: AppColors.grey,
+                        color:AppColors.white,// AppColors.grey, // Commented: BY MG:RRR
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                             color:
@@ -193,47 +195,48 @@ class ChooseLanguagePage extends StatelessWidget {
         : const SizedBox();
   }
 
-  // Widget confirmButton(Size size, BuildContext context) { // Commented: BY MG:
-  //   return Center(
-  //     child: CustomButton(
-  //       buttonName: AppLocalizations.of(context)!.confirm,
-  //       height: size.width * 0.15,
-  //       width: size.width * 0.85,
-  //       onTap: () async {
-  //         final selectedIndex = context.read<LanguageBloc>().selectedIndex;
-  //         context.read<LanguageBloc>().add(LanguageSelectUpdateEvent(
-  //             selectedLanguage:
-  //                 AppConstants.languageList.elementAt(selectedIndex).lang));
-  //       },
-  //     ),
-  //   );
-  // }
-    Widget confirmButton(Size size, BuildContext context) { // ADDED: BY MG:
-    return  Expanded(
-      child: ElevatedButton(
-       
-        // height: size.width * 0.15,
-        // width: size.width * 0.85,
-        onPressed: () async {
+  Widget confirmButton(Size size, BuildContext context) { // Commented: BY MG:
+    return Center(
+      child: CustomButton(
+        borderRadius:2.0,
+        buttonName: AppLocalizations.of(context)!.confirm,
+        height: size.width * 0.15,
+        width: size.width * 0.85,
+        onTap: () async {
           final selectedIndex = context.read<LanguageBloc>().selectedIndex;
           context.read<LanguageBloc>().add(LanguageSelectUpdateEvent(
               selectedLanguage:
                   AppConstants.languageList.elementAt(selectedIndex).lang));
         },
-          style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFC90E05),  // Custom Red Color (#C90E05)
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(2),
-          ),
-        ),
-        child:  Text(
-          AppLocalizations.of(context)!.confirm,
-          style: const TextStyle(fontSize: 14, color: Colors.white),
-        ),
       ),
     );
   }
+  //   Widget confirmButton(Size size, BuildContext context) { // ADDED: BY MG:
+  //   return  Expanded(
+  //     child: ElevatedButton(
+       
+  //       // height: size.width * 0.15,
+  //       // width: size.width * 0.85,
+  //       onPressed: () async {
+  //         final selectedIndex = context.read<LanguageBloc>().selectedIndex;
+  //         context.read<LanguageBloc>().add(LanguageSelectUpdateEvent(
+  //             selectedLanguage:
+  //                 AppConstants.languageList.elementAt(selectedIndex).lang));
+  //       },
+  //         style: ElevatedButton.styleFrom(
+  //         backgroundColor: const Color(0xFFC90E05),  // Custom Red Color (#C90E05)
+  //         padding: const EdgeInsets.symmetric(vertical: 20),
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(2),
+  //         ),
+  //       ),
+  //       child:  Text(
+  //         AppLocalizations.of(context)!.confirm,
+  //         style: const TextStyle(fontSize: 14, color: Colors.white),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
 
 
