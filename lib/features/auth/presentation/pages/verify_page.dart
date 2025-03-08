@@ -127,7 +127,7 @@ class _VerifyPageState extends State<VerifyPage>
                 child: Scaffold(
                   resizeToAvoidBottomInset: true,
                   body:
-                   CustomBackground(child:
+                  //  CustomBackground(child:
                    SafeArea(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -145,6 +145,7 @@ class _VerifyPageState extends State<VerifyPage>
                                         .textTheme
                                         .bodyMedium!
                                         .copyWith(
+                                          fontSize: 7,
                                           color: AppColors.greyHintColor,
                                         ),
                                   )
@@ -156,11 +157,29 @@ class _VerifyPageState extends State<VerifyPage>
                                         .textTheme
                                         .bodyMedium!
                                         .copyWith(
+                                           fontSize: 7,
                                           color: AppColors.greyHintColor,
                                         ),
-                                    maxLines: 2,
+                                    maxLines: 1,
                                   ),
                             const SizedBox(height: 20),
+                            // //
+                                                            Container(
+                                                  padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(2.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
                             Wrap(
                               alignment: WrapAlignment.center,
                               crossAxisAlignment: WrapCrossAlignment.center,
@@ -170,7 +189,7 @@ class _VerifyPageState extends State<VerifyPage>
                                     height: 20,
                                     width: 30,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(1.0),
                                       child: CachedNetworkImage(
                                         imageUrl: widget.arg.countryFlag,
                                         fit: BoxFit.fill,
@@ -210,7 +229,7 @@ class _VerifyPageState extends State<VerifyPage>
                                         .textTheme
                                         .bodySmall!
                                         .copyWith(
-                                          color: AppColors.black,
+                                          color: AppColors.greyHintColor,
                                         ),
                                   ),
                                 ),
@@ -224,12 +243,17 @@ class _VerifyPageState extends State<VerifyPage>
                                 context.read<AuthBloc>().isOtpVerify)
                               buildPinField(context),
                             const SizedBox(height: 20),
+                            //
+                          ],),),
+                          const SizedBox(height: 8),
                             buildLoginButton(context),
                           ],
                         ),
                       ),
                     ),
-                  ),
+                    //
+                  // ),
+                  //
                 ),
               ),
             );
@@ -250,7 +274,10 @@ class _VerifyPageState extends State<VerifyPage>
               text: AppLocalizations.of(context)!.password,
               textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: AppColors.black,
-                  fontSize: AppConstants().subHeaderSize),
+                  fontSize: AppConstants().subHeaderSize,
+                  fontWeight: FontWeight.bold,
+                  
+                  ),
             ),
             InkWell(
               onTap: () {
@@ -269,6 +296,7 @@ class _VerifyPageState extends State<VerifyPage>
               child: MyText(
                 text: AppLocalizations.of(context)!.signInUsingOtp,
                 textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  fontSize: 12,
                       color: AppColors.black,
                       fontWeight: FontWeight.w600,
                     ),
@@ -418,6 +446,7 @@ class _VerifyPageState extends State<VerifyPage>
                 ? '${AppLocalizations.of(context)!.resendOtp} 00:${context.read<AuthBloc>().timerDuration}'
                 : AppLocalizations.of(context)!.resendOtp,
             textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              fontSize: 10,
                   color: context.read<AuthBloc>().timerDuration != 0
                       ? AppColors.greyHintColor
                       : AppColors.black,
@@ -432,7 +461,7 @@ class _VerifyPageState extends State<VerifyPage>
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
           child: CustomButton(
             borderRadius: 2,
             height: MediaQuery.of(context).size.height * 0.06,

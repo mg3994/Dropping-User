@@ -80,304 +80,312 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Stack(
-      children: <Widget>[
-        Container(
-          height: widget.showLoginBtn ? size.height * 0.38 : size.height * 0.25,
-          decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            boxShadow: [
-              BoxShadow(
-                color: Theme.of(context).shadowColor,
-                blurRadius: 5,
-                spreadRadius: 1,
-              )
-            ],
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    MyText(
-                      text:
-                          '${AppLocalizations.of(context)!.welcome}, ${AppLocalizations.of(context)!.user}',
-                      textStyle: Theme.of(context)
-                          .textTheme
-                          .titleLarge!
-                          .copyWith(fontSize:14),// Modified: by MG: Font size
-                    ),
-                    const SizedBox(width: 10),
-                    SvgPicture.asset(AppImages.hi, height: 20, width: 25)
+    return Padding(
+      padding: const EdgeInsets.all(12.0), // Pading Added By MG:
+      child: Column(
+        children: [
+          Stack(
+            children: <Widget>[
+              Container(
+                // height: widget.showLoginBtn ? size.height * 0.38 : size.height * 0.25,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context).shadowColor,
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                    )
                   ],
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(2), topRight: Radius.circular(2)),
                 ),
-                 SizedBox(height: size.width * 0.04),
-                   DottedLine( // ADDED: BY MG: Dotted line
-                          dashLength: 2,
-                          dashGapLength: 2,
-                          dashRadius: 1,
-                          lineThickness: 1,
-                          dashColor: Theme.of(context).dividerColor,
-                        ),
-                SizedBox(height: size.width * 0.04),
-                MyText(
-                  text:
-                      '${AppLocalizations.of(context)!.email}/${AppLocalizations.of(context)!.mobile}',
-                  textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: AppColors.darkGrey,
-                        fontWeight: FontWeight.bold,
-                        fontSize:10                            // Modified By MG:
-                      ),
-                ),
-                SizedBox(height: size.width * 0.02),
-                Form(
-                  key: widget.formKey,
-                  child: CustomTextField(
-                    controller: widget.emailOrMobile,
-                    filled: true,
-                    focusNode: widget.focusNode,
-                    hintText: AppLocalizations.of(context)!
-                        .emailAddressOrMobileNumber,
-                    prefixConstraints:
-                        BoxConstraints(maxWidth: size.width * 0.2),
-                    prefixIcon: !widget.isLoginByEmail
-                        ? Center(
-                            child: InkWell(
-                              onTap: widget.countrySelectFunc,
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 20,
-                                    width: 25,
-                                    margin: const EdgeInsets.all(2),
-                                    // padding: const EdgeInsets.symmetric(horizontal: 2),
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
-                                      color: Theme.of(context).disabledColor,
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: CachedNetworkImage(
-                                      imageUrl: widget.flagImage,
-                                      fit: BoxFit.fill,
-                                      placeholder: (context, url) =>
-                                          const Center(
-                                        child: Loader(),
-                                      ),
-                                      errorWidget: (context, url, error) =>
-                                          const Center(
-                                        child: Text(""),
-                                      ),
-                                    ),
-                                  ),
-                                  MyText(
-                                    text: widget.dialCode,
-                                    textStyle:
-                                        Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold, fontSize: 13), // Modified By MG:
-
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        : null,
-                    onTap: widget.onTapEvent,
-                    onSubmitted: widget.onSubmitEvent,
-                    onChange: widget.onChangeEvent,
-                    validator: (value) {
-                      if (value!.isNotEmpty &&
-                          !AppValidation.emailValidate(value) &&
-                          !AppValidation.mobileNumberValidate(value)) {
-                        return AppLocalizations.of(context)!.validEmailMobile;
-                      } else if (value.isEmpty) {
-                        return AppLocalizations.of(context)!.enterEmailMobile;
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-                ),
-                // if (widget.showLoginBtn) ...[
-                SizedBox(height: size.width * 0.05),
-                Center(
-                  child: CustomButton(
-                    buttonName: AppLocalizations.of(context)!.continueN,
-                    borderRadius: 2,
-                    width: size.width,
-                    height: size.width * 0.12,
-                    textColor: AppColors.white,
-                    buttonColor: (widget.emailOrMobile.text.isEmpty)
-                        ? Theme.of(context).disabledColor.withOpacity(0.5)
-                        : null,
-                    onTap: () {
-                      if (widget.formKey.currentState!.validate() &&
-                          widget.emailOrMobile.text.isNotEmpty) {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        _continuePressed();
-                      }
-                    },
-                  ),
-                ),
-                SizedBox(height: size.width * 0.02),
-                SizedBox(
-                  width: size.width,
-                  child: Wrap(
-                    alignment: WrapAlignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyText(
-                        text: '${AppLocalizations.of(context)!.byContinuing} ',
-                        textStyle: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(
-                              fontSize: 8, // Modified By MG:
-                                color: AppColors.darkGrey,
-                                fontWeight: FontWeight.normal),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          MyText(
+                            text:
+                                '${AppLocalizations.of(context)!.welcome}, ${AppLocalizations.of(context)!.user}',
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(fontSize:14),// Modified: by MG: Font size
+                          ),
+                          const SizedBox(width: 10),
+                          SvgPicture.asset(AppImages.hi, height: 20, width: 25)
+                        ],
                       ),
-                      InkWell(
-                        onTap: () async {
-                          openUrl(AppConstants.termsCondition);
-                        },
-                        child: MyText(
-                          text: '${AppLocalizations.of(context)!.terms} ',
-                          textStyle: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                 fontSize: 8, // Modified By MG:
-                                  fontWeight: FontWeight.normal,
-                                  decoration: TextDecoration.underline),
+                       SizedBox(height: size.width * 0.04),
+                         DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
+                      SizedBox(height: size.width * 0.04),
+                      MyText(
+                        text:
+                            '${AppLocalizations.of(context)!.email}/${AppLocalizations.of(context)!.mobile}',
+                        textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              color: AppColors.darkGrey,
+                              fontWeight: FontWeight.bold,
+                              fontSize:10                            // Modified By MG:
+                            ),
+                      ),
+                      SizedBox(height: size.width * 0.02),
+                      Form(
+                        key: widget.formKey,
+                        child: CustomTextField(
+                          borderRadius: 2,
+                          controller: widget.emailOrMobile,
+                          filled: true,
+                          focusNode: widget.focusNode,
+                          hintText: AppLocalizations.of(context)!
+                              .emailAddressOrMobileNumber,
+                          prefixConstraints:
+                              BoxConstraints(maxWidth: size.width * 0.2),
+                          prefixIcon: !widget.isLoginByEmail
+                              ? Center(
+                                  child: InkWell(
+                                    onTap: widget.countrySelectFunc,
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: 20,
+                                          width: 25,
+                                          margin: const EdgeInsets.all(2),
+                                          // padding: const EdgeInsets.symmetric(horizontal: 2),
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                            color: Theme.of(context).disabledColor,
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                          child: CachedNetworkImage(
+                                            imageUrl: widget.flagImage,
+                                            fit: BoxFit.fill,
+                                            placeholder: (context, url) =>
+                                                const Center(
+                                              child: Loader(),
+                                            ),
+                                            errorWidget: (context, url, error) =>
+                                                const Center(
+                                              child: Text(""),
+                                            ),
+                                          ),
+                                        ),
+                                        MyText(
+                                          text: widget.dialCode,
+                                          textStyle:
+                                              Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold, fontSize: 13), // Modified By MG:
+          
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              : null,
+                          onTap: widget.onTapEvent,
+                          onSubmitted: widget.onSubmitEvent,
+                          onChange: widget.onChangeEvent,
+                          validator: (value) {
+                            if (value!.isNotEmpty &&
+                                !AppValidation.emailValidate(value) &&
+                                !AppValidation.mobileNumberValidate(value)) {
+                              return AppLocalizations.of(context)!.validEmailMobile;
+                            } else if (value.isEmpty) {
+                              return AppLocalizations.of(context)!.enterEmailMobile;
+                            } else {
+                              return null;
+                            }
+                          },
                         ),
                       ),
-                      MyText(
-                        text: AppLocalizations.of(context)!.and,
-                        textStyle:
-                            Theme.of(context).textTheme.bodyMedium!.copyWith(
-                               fontSize: 8, // Modified By MG:
-                                  color: AppColors.darkGrey,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          openUrl(AppConstants.privacyPolicy);
-                        },
-                        child: MyText(
-                          text:
-                              '${AppLocalizations.of(context)!.privacyPolicy} ',
-                          textStyle: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                 fontSize: 8, // Modified By MG:
-                                  fontWeight: FontWeight.normal,
-                                  decoration: TextDecoration.underline),
-                        ),
-                      ),
+                      // if (widget.showLoginBtn) ...[
+                     //Removed from here
+                      // ],
                     ],
                   ),
                 ),
-                // ],
-              ],
-            ),
-          ),
-        ),
-        AnimatedBuilder(
-          animation: _controller,
-          builder: (context, child) {
-            return Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: ScaleTransition(
-                scale: scaleAnimation,
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Container(
-                    decoration: ShapeDecoration(
-                        color: Theme.of(context).dialogBackgroundColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 25, vertical: 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Wrap(
-                              // mainAxisAlignment: MainAxisAlignment.center,
-                              alignment : WrapAlignment.center,
-                              children: [
-                                if(!widget.isLoginByEmail)
-                                MyText(
-                                  text: widget.dialCode,
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge!
-                                      .copyWith(fontSize: 20),
+              ),
+              AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: ScaleTransition(
+                      scale: scaleAnimation,
+                      child: Container(
+                        decoration: ShapeDecoration(
+                            color: Theme.of(context).dialogBackgroundColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(2))),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const SizedBox(height: 20),
+                            Wrap(
+                                // mainAxisAlignment: MainAxisAlignment.center,
+                                alignment : WrapAlignment.center,
+                                children: [
+                                  if(!widget.isLoginByEmail)
+                                  MyText(
+                                    text: widget.dialCode,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .copyWith(fontSize: 12),
+                                  ),
+                                  SizedBox(width: size.width * 0.02),
+                                  MyText(
+                                    text: widget.emailOrMobile.text,
+                                    maxLines: 3,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .copyWith(fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                            const SizedBox(height: 20),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).disabledColor),
+                                      text:
+                                          '${AppLocalizations.of(context)!.isThisCorrect} ',
+                                    ),
+                                    TextSpan(
+                                      style: AppTextStyle.boldStyle(
+                                        size: 16,
+                                        weight: FontWeight.bold,
+                                      ).copyWith(
+                                          color: (Theme.of(context).brightness ==
+                                                  Brightness.light)
+                                              ? AppColors.black
+                                              : AppColors.white,
+                                          decoration: TextDecoration.underline,
+                                          decorationStyle:
+                                              TextDecorationStyle.solid),
+                                      text: AppLocalizations.of(context)!.edit,
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = _closeDialog,
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(width: size.width * 0.02),
-                                MyText(
-                                  text: widget.emailOrMobile.text,
-                                  maxLines: 3,
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge!
-                                      .copyWith(fontSize: 20),
-                                ),
-                              ],
+                              ),
                             ),
-                          const SizedBox(height: 20),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                  text:
-                                      '${AppLocalizations.of(context)!.isThisCorrect} ',
-                                ),
-                                TextSpan(
-                                  style: AppTextStyle.boldStyle(
-                                    size: 16,
-                                    weight: FontWeight.normal,
-                                  ).copyWith(
-                                      color: (Theme.of(context).brightness ==
-                                              Brightness.light)
-                                          ? AppColors.black
-                                          : AppColors.white,
-                                      decoration: TextDecoration.underline,
-                                      decorationStyle:
-                                          TextDecorationStyle.solid),
-                                  text: AppLocalizations.of(context)!.edit,
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = _closeDialog,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          CustomButton(
-                            buttonName: AppLocalizations.of(context)!.continueN,
-                            borderRadius: 18,
-                            width: size.width,
-                            height: size.width * 0.12,
-                            isLoader: widget.isShowLoader,
-                            onTap: widget.continueFunc,
-                          )
-                        ],
+                            const SizedBox(height: 20),
+                            CustomButton(
+                              buttonName: AppLocalizations.of(context)!.continueN,
+                              borderRadius: 18,
+                              width: size.width,
+                              height: size.width * 0.12,
+                              isLoader: widget.isShowLoader,
+                              onTap: widget.continueFunc,
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-      ],
+            ],
+          ), 
+//ADD Here [Start]
+ SizedBox(height: size.width * 0.05),
+                      Center(
+                        child: CustomButton(
+                          buttonName: AppLocalizations.of(context)!.continueN,
+                          borderRadius: 2,
+                          width: size.width,
+                          height: size.width * 0.12,
+                          textColor: AppColors.white,
+                          buttonColor: (widget.emailOrMobile.text.isEmpty)
+                              ? Theme.of(context).disabledColor.withOpacity(0.5)
+                              : null,
+                          onTap: () {
+                            if (widget.formKey.currentState!.validate() &&
+                                widget.emailOrMobile.text.isNotEmpty) {
+                              FocusScope.of(context).requestFocus(FocusNode());
+                              _continuePressed();
+                            }
+                          },
+                        ),
+                      ),
+                      SizedBox(height: size.width * 0.02),
+                      SizedBox(
+                        width: size.width,
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          children: [
+                            MyText(
+                              text: '${AppLocalizations.of(context)!.byContinuing} ',
+                              textStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    fontSize: 8, // Modified By MG:
+                                      color: AppColors.darkGrey,
+                                      fontWeight: FontWeight.normal),
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                openUrl(AppConstants.termsCondition);
+                              },
+                              child: MyText(
+                                text: '${AppLocalizations.of(context)!.terms} ',
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                       fontSize: 8, // Modified By MG:
+                                        fontWeight: FontWeight.normal,
+                                        decoration: TextDecoration.underline),
+                              ),
+                            ),
+                            MyText(
+                              text: AppLocalizations.of(context)!.and,
+                              textStyle:
+                                  Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                     fontSize: 8, // Modified By MG:
+                                        color: AppColors.darkGrey,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                openUrl(AppConstants.privacyPolicy);
+                              },
+                              child: MyText(
+                                text:
+                                    '${AppLocalizations.of(context)!.privacyPolicy} ',
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                       fontSize: 8, // Modified By MG:
+                                        fontWeight: FontWeight.normal,
+                                        decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+          // add Here [end]
+        ],
+      ),
     );
   }
 }

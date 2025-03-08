@@ -12,6 +12,8 @@ import '../../../../core/utils/custom_text.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../application/auth_bloc.dart';
 import 'update_password_page.dart';
+import 'package:dotted_line/dotted_line.dart'; // Add this package // ADDED: BY MG: Dotted line
+
 
 class ForgotPasswordPage extends StatelessWidget {
   static const String routeName = '/forgotPasswordPage';
@@ -52,8 +54,9 @@ class ForgotPasswordPage extends StatelessWidget {
                     ? TextDirection.rtl
                     : TextDirection.ltr,
                 child: Scaffold(
-                  body: CustomBackground(
-                    child: SafeArea(
+                  body:
+                  //  CustomBackground(child: 
+                   SafeArea(
                       child: SingleChildScrollView(
                         child: Padding(
                           padding: const EdgeInsets.all(20),
@@ -65,21 +68,19 @@ class ForgotPasswordPage extends StatelessWidget {
                                 SizedBox(
                                     height: MediaQuery.of(context).size.width *
                                         0.05),
-                                Center(
-                                  child: MyText(
-                                    text: AppLocalizations.of(context)!
-                                        .forgetPassword,
-                                    textAlign: TextAlign.center,
-                                    textStyle: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium!
-                                        .copyWith(
-                                            color: AppColors.black,
-                                            fontSize:
-                                                AppConstants().headerSize),
-                                  ),
+                                MyText(
+                                  text: AppLocalizations.of(context)!
+                                      .forgetPassword,
+                                  textAlign: TextAlign.center,
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .displayMedium!
+                                      .copyWith(
+                                          color: AppColors.black,
+                                          fontSize:
+                                              AppConstants().subHeaderSize),
                                 ),
-                                SizedBox(height: size.width * 0.1),
+                                SizedBox(height: size.width * 0.04),
                                 MyText(
                                   text: AppLocalizations.of(context)!
                                       .otpSendContent,
@@ -88,54 +89,82 @@ class ForgotPasswordPage extends StatelessWidget {
                                       .textTheme
                                       .bodyMedium!
                                       .copyWith(
+                                        fontSize: 7,
+                                        fontWeight: FontWeight.w500,
                                         color: Theme.of(context).disabledColor,
                                       ),
-                                  maxLines: 2,
+                                  maxLines: 1,
                                 ),
                                 SizedBox(height: size.width * 0.05),
-                                Center(
-                                  child: Wrap(
-                                    alignment: WrapAlignment.center,
-                                    crossAxisAlignment:
-                                        WrapCrossAlignment.center,
+                                                                Container(
+                                                  padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(2.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      if (!arg.isLoginByEmail)
-                                        SizedBox(
-                                          height: 20,
-                                          width: 30,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            child: CachedNetworkImage(
-                                              imageUrl: arg.countryFlag,
-                                              fit: BoxFit.fill,
-                                              placeholder: (context, url) =>
-                                                  const Center(
-                                                child: Loader(),
-                                              ),
-                                              errorWidget:
-                                                  (context, url, error) =>
-                                                      const Center(
-                                                child: Text(""),
-                                              ),
+                                Wrap(
+                                  alignment: WrapAlignment.center,
+                                  crossAxisAlignment:
+                                      WrapCrossAlignment.center,
+                                  children: [
+                                    if (!arg.isLoginByEmail)
+                                      SizedBox(
+                                        height: 20,
+                                        width: 30,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(1),
+                                          child: CachedNetworkImage(
+                                            imageUrl: arg.countryFlag,
+                                            fit: BoxFit.fill,
+                                            placeholder: (context, url) =>
+                                                const Center(
+                                              child: Loader(),
                                             ),
-                                            // child: Image.network(
-                                            //   arg.countryFlag,
-                                            //   fit: BoxFit.fill,
-                                            // ),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    const Center(
+                                              child: Text(""),
+                                            ),
                                           ),
+                                          // child: Image.network(
+                                          //   arg.countryFlag,
+                                          //   fit: BoxFit.fill,
+                                          // ),
                                         ),
-                                      const SizedBox(width: 10),
-                                      MyText(text: arg.emailOrMobile),
-                                      const SizedBox(width: 10),
-                                    ],
-                                  ),
+                                      ),
+                                    const SizedBox(width: 10),
+                                    MyText(text: arg.emailOrMobile),
+                                    const SizedBox(width: 10),
+                                  ],
                                 ),
-                                SizedBox(height: size.width * 0.1),
+                                //
+                                    const SizedBox(height: 5,),
+
+                                   DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
+                                SizedBox(height: size.width * 0.07),
                                 buildPinField(context),
                                 SizedBox(height: size.width * 0.02),
+                               
+                              ]),),
                                 SizedBox(height: size.width * 0.1),
-                                buildButton(context),
+                               buildButton(context),
                                 SizedBox(height: size.width * 0.3),
                               ],
                             ),
@@ -143,7 +172,7 @@ class ForgotPasswordPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
+                  // ),
                 ),
               ),
             );
@@ -157,7 +186,7 @@ class ForgotPasswordPage extends StatelessWidget {
     return Center(
       child: CustomButton(
         buttonName: AppLocalizations.of(context)!.confirm,
-        borderRadius: 10,
+        borderRadius: 2,
         height: MediaQuery.of(context).size.height * 0.06,
         isLoader: context.read<AuthBloc>().isLoading,
         onTap: () {
@@ -186,7 +215,7 @@ class ForgotPasswordPage extends StatelessWidget {
       children: [
         MyText(
           text: AppLocalizations.of(context)!.enterOtp,
-          textStyle: TextStyle(fontSize: AppConstants().subHeaderSize),
+          textStyle: TextStyle(fontSize: AppConstants().subHeaderSize, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 10),
         PinCodeTextField(
@@ -199,7 +228,7 @@ class ForgotPasswordPage extends StatelessWidget {
           animationType: AnimationType.fade,
           pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(2),
             fieldHeight: 45,
             fieldWidth: 45,
             activeFillColor: Theme.of(context).scaffoldBackgroundColor,
@@ -254,7 +283,7 @@ class ForgotPasswordPage extends StatelessWidget {
             textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: context.read<AuthBloc>().timerDuration != 0
                     ? Theme.of(context).disabledColor
-                    : AppColors.black,
+                    :Theme.of(context).disabledColor,// AppColors.black,
                 fontSize: AppConstants().subHeaderSize),
           ),
         ),

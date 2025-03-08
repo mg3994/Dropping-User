@@ -54,7 +54,9 @@ class MyApp extends StatelessWidget {
               theme: AppThemes.applicationDefaultTheme(context),
               onGenerateRoute: AppRoutes.onGenerateRoutes,
               onUnknownRoute: AppRoutes.onUnknownRoute,
+
               initialRoute: LoaderPage.routeName,
+              
               title: AppConstants.title,
               themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
               darkTheme: AppThemes.darkTheme(context),

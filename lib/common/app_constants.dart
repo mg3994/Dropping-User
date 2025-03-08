@@ -35,8 +35,8 @@ class AppConstants {
 
   static LatLng currentLocations = const LatLng(0, 0);
   double headerSize = 18.0;
-  double subHeaderSize = 16.0;
-  double buttonTextSize = 20.0;
+  double subHeaderSize = 12.0;
+  double buttonTextSize = 18.0;
 }
 
 AppDatabase db = AppDatabase();

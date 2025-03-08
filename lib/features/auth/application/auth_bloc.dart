@@ -60,6 +60,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   List<Country> countries = [];
   List<Widget> splashImages = [
+    Image.asset(AppImages.logo),
     Image.asset(AppImages.splash1),
     Image.asset(AppImages.splash2),
   ];

@@ -89,8 +89,11 @@ class AuthPage extends StatelessWidget {
                       : TextDirection.ltr,
                   child: Scaffold(
                     // resizeToAvoidBottomInset: true,
-                    body: AuthBodyWidget(cont:context),
-                    bottomSheet: AuthBottomSheetWidget(
+                    body: AuthBodyWidget(cont:context,
+                    children: [
+                    // ),
+                    // bottomSheet:
+                     AuthBottomSheetWidget(
                         formKey: context.read<AuthBloc>().formKey,
                         emailOrMobile:
                             context.read<AuthBloc>().emailOrMobileController,
@@ -130,6 +133,7 @@ class AuthPage extends StatelessWidget {
                         isShowLoader: context.read<AuthBloc>().isLoading,
                         dialCode: context.read<AuthBloc>().dialCode,
                         flagImage: context.read<AuthBloc>().flagImage),
+                        ]),
                   ),
                 ),
               ),

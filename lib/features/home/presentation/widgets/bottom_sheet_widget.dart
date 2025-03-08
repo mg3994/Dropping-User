@@ -32,8 +32,8 @@ class BottomSheetWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30)),
+                    topLeft: Radius.circular(1),
+                    topRight: Radius.circular(1)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,7 +159,7 @@ class BottomSheetWidget extends StatelessWidget {
                                             color: Theme.of(context)
                                                 .scaffoldBackgroundColor,
                                             borderRadius:
-                                                BorderRadius.circular(20),
+                                                BorderRadius.circular(2),
                                             border: Border.all(
                                               color: Theme.of(context)
                                                   .disabledColor
@@ -210,7 +210,7 @@ class BottomSheetWidget extends StatelessWidget {
                                                           color: Theme.of(
                                                                   context)
                                                               .primaryColorDark.withOpacity(0.5),
-                                                          fontSize: 16),
+                                                          fontSize: 9),
                                                 ),
                                               ),
                                               if (context
@@ -254,6 +254,7 @@ class BottomSheetWidget extends StatelessWidget {
                                                                 .textTheme
                                                                 .bodyLarge!
                                                                 .copyWith(
+                                                                  fontSize: 12,
                                                                   color: Theme.of(
                                                                           context)
                                                                       .disabledColor
@@ -311,7 +312,7 @@ class BottomSheetWidget extends StatelessWidget {
                                                 .showRentalRide)))
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 5),
+                                        horizontal: 5 ,vertical: 15),
                                     child: ServicesModuleWidget(cont: cont),
                                   ),
 
