@@ -56,7 +56,7 @@ class SendOrReceiveDelivery extends StatelessWidget {
                 SizedBox(height: size.width * 0.1),
                 CustomButton(
                   buttonName: AppLocalizations.of(context)!.sendParcel,
-                  borderRadius: 20,
+                  borderRadius: 2,
                   width: size.width * 0.8,
                   height: size.width * 0.12,
                   onTap: () {
@@ -79,7 +79,7 @@ class SendOrReceiveDelivery extends StatelessWidget {
                 SizedBox(height: size.width * 0.05),
                 CustomButton(
                   buttonName: AppLocalizations.of(context)!.receiveParcel,
-                  borderRadius: 20,
+                  borderRadius: 2,
                   isBorder: true,
                   textColor: Theme.of(context).primaryColor,
                   buttonColor: Theme.of(context).scaffoldBackgroundColor,

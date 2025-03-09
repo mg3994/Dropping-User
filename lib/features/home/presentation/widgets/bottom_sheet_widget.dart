@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -65,7 +66,7 @@ class BottomSheetWidget extends StatelessWidget {
                         return Container(
                           width: size.width,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(2),
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
@@ -286,6 +287,13 @@ class BottomSheetWidget extends StatelessWidget {
                                   BannerWidget(cont: context),
                                 ],
                                 // Service Modules
+                                  if (context.read<HomeBloc>().isSheetAtTop) ...[
+                                    Divider(
+                                      color: Theme.of(context)
+                                          .dividerColor
+                                          .withOpacity(0.4),
+                                    ),
+                                  ],
                                 if (context.read<HomeBloc>().userData != null &&
                                     ((context
                                                 .read<HomeBloc>()
@@ -310,6 +318,7 @@ class BottomSheetWidget extends StatelessWidget {
                                                 .read<HomeBloc>()
                                                 .userData!
                                                 .showRentalRide)))
+                                
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 5 ,vertical: 15),
@@ -340,6 +349,13 @@ class BottomSheetWidget extends StatelessWidget {
                                       ],
                                     ),
                                   ),
+                                   DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
                                   SizedBox(height: size.width * 0.01),
                                   HomeOnGoingRidesWidget(cont: context),
                                 ],

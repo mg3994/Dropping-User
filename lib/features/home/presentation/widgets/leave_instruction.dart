@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,6 +56,7 @@ class LeaveInstructions extends StatelessWidget {
                           : AppLocalizations.of(context)!.receiverDetails,
                       textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: Theme.of(context).primaryColorDark,
+                            fontWeight: FontWeight.bold,
                           ),
                     ),
                     InkWell(
@@ -66,6 +68,14 @@ class LeaveInstructions extends StatelessWidget {
                     )
                   ],
                 ),
+                SizedBox(height: 2,),
+                 DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
                 Theme(
                   data: ThemeData(
                     unselectedWidgetColor: Theme.of(context).primaryColorDark,
@@ -92,12 +102,13 @@ class LeaveInstructions extends StatelessWidget {
                           text: isReceiveParcel
                               ? AppLocalizations.of(context)!.sendMyself
                               : AppLocalizations.of(context)!.receiveMyself,
-                          textStyle: Theme.of(context).textTheme.bodyMedium),
+                          textStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).disabledColor, fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ),
                 if (isReceiveParcel) SizedBox(height: size.width * 0.05),
                 CustomTextField(
+                  borderRadius: 2,
                   controller: context.read<HomeBloc>().receiverNameController,
                   filled: true,
                   hintText: AppLocalizations.of(context)!.name,
@@ -106,6 +117,7 @@ class LeaveInstructions extends StatelessWidget {
                 ),
                 SizedBox(height: size.width * 0.03),
                 CustomTextField(
+                  borderRadius: 2,
                   controller: context.read<HomeBloc>().receiverMobileController,
                   filled: true,
                   hintText: AppLocalizations.of(context)!.mobileNumber,
@@ -114,6 +126,7 @@ class LeaveInstructions extends StatelessWidget {
                 ),
                 SizedBox(height: size.width * 0.03),
                 CustomTextField(
+                  borderRadius: 2,
                   controller: context.read<HomeBloc>().instructionsController,
                   filled: true,
                   hintText:

@@ -94,17 +94,20 @@ class ServicesModuleWidget extends StatelessWidget {
                             ),
                             const SizedBox(height: 6),
                             Container(
-                                decoration: BoxDecoration(
-      color: Colors.red,
+                                   decoration: BoxDecoration(
+      color: (context.read<HomeBloc>().isSheetAtTop) ? Colors.transparent:Theme.of(context).primaryColor,
       // borderRadius: BorderRadius.circular(8), // Optional: rounded corners
+          borderRadius: const BorderRadius.only(
+      bottomLeft: Radius.circular(3),  // Adjust the radius as needed
+      bottomRight: Radius.circular(3),  // Adjust the radius as needed
+    ),
         ),
         alignment: Alignment.center,
                               child: MyText(
                                 text: AppLocalizations.of(context)!.taxi,
-                                textStyle:
+                                 textStyle:
                                     Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      fontSize: 12,
-                                           color: Colors.white, // Change text color to white
+                                          color:(context.read<HomeBloc>().isSheetAtTop) ? Colors.black : AppColors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
                               ),
@@ -158,17 +161,21 @@ class ServicesModuleWidget extends StatelessWidget {
                             ),
                             const SizedBox(height: 6),
                             Container(
-                                decoration: BoxDecoration(
-      color: Colors.grey[500],
+                                     decoration: BoxDecoration(
+      color: (context.read<HomeBloc>().isSheetAtTop) ? Colors.transparent:Colors.grey[500],
       // borderRadius: BorderRadius.circular(8), // Optional: rounded corners
+          borderRadius: const BorderRadius.only(
+      bottomLeft: Radius.circular(3),  // Adjust the radius as needed
+      bottomRight: Radius.circular(3),  // Adjust the radius as needed
+    ),
         ),
         alignment: Alignment.center,
                               child: MyText(
                                 text: AppLocalizations.of(context)!.delivery,
                                 // text: 'Delivery',
-                                textStyle:
+                            textStyle:
                                     Theme.of(context).textTheme.bodySmall!.copyWith(
-                                           color: AppColors.white,
+                                          color:(context.read<HomeBloc>().isSheetAtTop) ? Colors.black : AppColors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
                               ),
@@ -213,15 +220,19 @@ class ServicesModuleWidget extends StatelessWidget {
                             const SizedBox(height: 2),
                             Container(
                                 decoration: BoxDecoration(
-      color: Colors.grey[500],
+      color: (context.read<HomeBloc>().isSheetAtTop) ? Colors.transparent:Colors.grey[500],
       // borderRadius: BorderRadius.circular(8), // Optional: rounded corners
+          borderRadius: const BorderRadius.only(
+      bottomLeft: Radius.circular(3),  // Adjust the radius as needed
+      bottomRight: Radius.circular(3),  // Adjust the radius as needed
+    ),
         ),
         alignment: Alignment.center,
                               child:MyText(
                                 text: AppLocalizations.of(context)!.rental,
                                 textStyle:
                                     Theme.of(context).textTheme.bodySmall!.copyWith(
-                                          color: AppColors.white,
+                                          color:(context.read<HomeBloc>().isSheetAtTop) ? Colors.black : AppColors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
                               ),
@@ -274,16 +285,20 @@ class ServicesModuleWidget extends StatelessWidget {
                             ),
                             const SizedBox(height: 2),
                                Container(
-                                decoration: BoxDecoration(
-      color: Colors.grey[500],
+          decoration: BoxDecoration(
+      color: (context.read<HomeBloc>().isSheetAtTop) ? Colors.transparent:Colors.grey[500],
       // borderRadius: BorderRadius.circular(8), // Optional: rounded corners
+          borderRadius: const BorderRadius.only(
+      bottomLeft: Radius.circular(3),  // Adjust the radius as needed
+      bottomRight: Radius.circular(3),  // Adjust the radius as needed
+    ),
         ),
         alignment: Alignment.center,
                               child: MyText(
                                 text: AppLocalizations.of(context)!.outStation,
                                 textStyle:
                                     Theme.of(context).textTheme.bodySmall!.copyWith(
-                                          color: AppColors.white,
+                                          color:(context.read<HomeBloc>().isSheetAtTop) ? Colors.black : AppColors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
                               ),
