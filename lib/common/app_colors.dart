@@ -46,7 +46,7 @@ class AppColors {
 
 // Common colors
   static const int primaryValue = 0xFFA432A7;
-  static const Color white = Color(0xFFFFFFFF);
+  static const Color white = Color(0xFFF7F7F7);
   static const Color black = Color(0xFF000000);
   static const Color grey = Color.fromARGB(200, 218, 212, 212);
   static const Color green = Color(0xff0BC333);
@@ -68,5 +68,5 @@ class AppColors {
 
   static const Color whiteText = Color(0xFFFFFFFF);
   static const Color blackText = Color(0xFF000000);
-    static const Color scaffoldBackgroundColor =Color(0xFFEBEBEB);// Added By MG:
+    static const Color scaffoldBackgroundColor =Color(0xFFEBEBEB);// Added By MG: #EBEBEB 
 }

@@ -37,15 +37,24 @@ class CustomButton extends StatelessWidget {
         height: height ?? size.width * 0.1,
         width: width ?? size.width * 0.5,
         decoration: BoxDecoration(
-            border: (isBorder != null && isBorder!)
-                ? Border.all(color: Theme.of(context).primaryColor)
-                : null,
-            color: buttonColor ?? Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(borderRadius ?? 5)),
+          border: (isBorder != null && isBorder!)
+              ? Border.all(color: Theme.of(context).primaryColor)
+              : null,
+          color: buttonColor ?? Theme.of(context).primaryColor,
+          borderRadius: BorderRadius.circular(borderRadius ?? 2),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
         child: Center(
           child: !isLoader!
               ? MyText(
-                  text :buttonName,
+                  text: buttonName,
                   textStyle: AppTextStyle.boldStyle().copyWith(
                     color: textColor ?? AppColors.white,
                     fontSize: textSize ?? AppConstants().buttonTextSize,

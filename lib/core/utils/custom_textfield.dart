@@ -106,7 +106,7 @@ class CustomTextField extends StatelessWidget {
         suffix: suffix,
         suffixIcon: suffixIcon,
         contentPadding: contentPadding ??
-            const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+            const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         hintText: hintText,
         hintStyle: hintTextStyle ??
             Theme.of(context).textTheme.bodyMedium!.copyWith(

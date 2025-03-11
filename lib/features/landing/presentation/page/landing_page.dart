@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -77,7 +78,7 @@ class _LandingPageState extends State<LandingPage> {
                                       color: Theme.of(context).hintColor,
                                     ),
                                   ),
-                                  SizedBox(height: size.height * 0.16),
+                                  SizedBox(height: size.height * 0.2),
                                   buildLandingContentWidget(size, context),
                                   SizedBox(height: size.height * 0.02),
                                   buildSkipButton(context, size),
@@ -104,6 +105,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget buildLandingContentWidget(Size size, BuildContext context) {
     return context.read<OnBoardingBloc>().onBoardingData.isNotEmpty
         ? Column(
+          spacing: 12,
             children: [
               SizedBox(
                 height: size.height * 0.20,
@@ -116,28 +118,51 @@ class _LandingPageState extends State<LandingPage> {
                   itemCount:
                       context.read<OnBoardingBloc>().onBoardingData.length,
                   itemBuilder: (context, index) {
-                    return Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        MyText(
-                          text: context
-                              .read<OnBoardingBloc>()
-                              .onBoardingData[index]
-                              .title
-                              .toUpperCase(),
-                          textStyle: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                        SizedBox(height: size.height * 0.02),
-                        MyText(
-                          text: context
-                              .read<OnBoardingBloc>()
-                              .onBoardingData[index]
-                              .description,
-                          textStyle: Theme.of(context).textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                          maxLines: 3,
-                        ),
-                      ],
+                    return Container(
+                          decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(2.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          MyText(
+                            text: context
+                                .read<OnBoardingBloc>()
+                                .onBoardingData[index]
+                                .title
+                                .toUpperCase(),
+                            textStyle: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                                 Padding(
+                                   padding: const EdgeInsets.symmetric(horizontal: 20),
+                                   child: DottedLine( // ADDED: BY MG: Dotted line
+                                                                   dashLength: 2,
+                                                                   dashGapLength: 2,
+                                                                   dashRadius: 1,
+                                                                   lineThickness: 1,
+                                                                   dashColor: Theme.of(context).dividerColor,
+                                                                 ),
+                                 ),
+                          SizedBox(height: size.height * 0.02),
+                          MyText(
+                            text: context
+                                .read<OnBoardingBloc>()
+                                .onBoardingData[index]
+                                .description,
+                            textStyle: Theme.of(context).textTheme.bodyMedium,
+                            textAlign: TextAlign.center,
+                            maxLines: 3,
+                          ),
+                        ],
+                      ),
                     );
                   },
                   onPageChanged: (value) {
@@ -151,6 +176,7 @@ class _LandingPageState extends State<LandingPage> {
                   },
                 ),
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(

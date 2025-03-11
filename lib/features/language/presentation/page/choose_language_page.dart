@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../common/common.dart';
 import '../../../../core/utils/custom_background.dart';
@@ -177,12 +178,42 @@ class ChooseLanguagePage extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 10.0),
                         child: Align(
                           alignment: Alignment.centerLeft,
-                          child: MyText(
-                            text: languageList[index].name,
-                            textStyle:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      color: AppColors.black,
+                          child: Row(
+                            spacing:4,
+                            children: [
+                              CachedNetworkImage(imageUrl: 
+                            languageList[index].flag,
+                                height: 22,
+                                width:35,
+                                // placeholder: (context, url) {
+                                //   return const Icon(Icons.error);
+                                // },
+                                errorWidget: (context, url, error) {
+                                  return const Icon(Icons.error);
+                                },
+                                progressIndicatorBuilder: (context, url, progress) {
+                                    return Center(
+                                    child: SizedBox(
+                                      height: 12,
+                                      width: 12,
+                                      child: CircularProgressIndicator(
+                                      strokeWidth: 1.5,
+                                      value: progress.progress,
+                                      ),
                                     ),
+                                    );
+                                },
+                              ),
+                            
+                              MyText(
+                                text: languageList[index].name,
+                                textStyle:
+                                    Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                          color: AppColors.black,
+                                          fontWeight: FontWeight.bold
+                                        ),
+                              ),
+                            ],
                           ),
                         ),
                       ),

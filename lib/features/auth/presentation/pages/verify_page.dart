@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -145,7 +146,7 @@ class _VerifyPageState extends State<VerifyPage>
                                         .textTheme
                                         .bodyMedium!
                                         .copyWith(
-                                          fontSize: 7,
+                                          fontSize: 9,
                                           color: AppColors.greyHintColor,
                                         ),
                                   )
@@ -157,7 +158,7 @@ class _VerifyPageState extends State<VerifyPage>
                                         .textTheme
                                         .bodyMedium!
                                         .copyWith(
-                                           fontSize: 7,
+                                           fontSize: 9,
                                           color: AppColors.greyHintColor,
                                         ),
                                     maxLines: 1,
@@ -235,7 +236,7 @@ class _VerifyPageState extends State<VerifyPage>
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 30),
+                            const SizedBox(height: 15),
                             if (widget.arg.userExist &&
                                 !context.read<AuthBloc>().isOtpVerify)
                               passwordField(context),
@@ -355,6 +356,14 @@ class _VerifyPageState extends State<VerifyPage>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+         DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -381,6 +390,7 @@ class _VerifyPageState extends State<VerifyPage>
               ),
           ],
         ),
+             
         const SizedBox(height: 10),
         PinCodeTextField(
           appContext: context,
@@ -392,18 +402,19 @@ class _VerifyPageState extends State<VerifyPage>
           animationType: AnimationType.fade,
           pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(2),
             fieldHeight: 45,
             fieldWidth: 45,
-            activeFillColor: Theme.of(context).scaffoldBackgroundColor,
-            inactiveFillColor: Theme.of(context).scaffoldBackgroundColor,
-            inactiveColor: Theme.of(context).scaffoldBackgroundColor,
-            selectedFillColor: Theme.of(context).scaffoldBackgroundColor,
+            activeFillColor: Theme.of(context).dialogBackgroundColor,
+            inactiveFillColor: Theme.of(context).dialogBackgroundColor,
+            inactiveColor: Theme.of(context).dialogBackgroundColor,
+            selectedFillColor: Theme.of(context).dialogBackgroundColor,
             selectedColor: Theme.of(context).disabledColor,
-            selectedBorderWidth: 1,
-            inactiveBorderWidth: 1,
-            activeBorderWidth: 1,
-            activeColor: Theme.of(context).scaffoldBackgroundColor,
+            selectedBorderWidth: 2,
+            inactiveBorderWidth: 2,
+            activeBorderWidth: 2,
+            borderWidth: 1,
+            activeColor: Theme.of(context).dialogBackgroundColor,
           ),
           cursorColor: Theme.of(context).dividerColor,
           animationDuration: const Duration(milliseconds: 300),

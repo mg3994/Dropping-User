@@ -71,7 +71,7 @@ Future<void> init() async {
   serviceLocator.registerFactory<LanguageBloc>(() => LanguageBloc());
   serviceLocator.registerLazySingleton<LanguageApi>(() => LanguageApi());
   serviceLocator.registerLazySingleton<LanguageRepository>(
-      () => LanguageRepositoryImpl(serviceLocator()));
+      () => LanguageRepositoryImpl(serviceLocator())); // never used But soon in Future:
   serviceLocator.registerLazySingleton<LanguageUsecase>(
       () => LanguageUsecase(serviceLocator()));
 

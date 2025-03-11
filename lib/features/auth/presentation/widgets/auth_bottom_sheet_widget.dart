@@ -235,14 +235,27 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                                 // mainAxisAlignment: MainAxisAlignment.center,
                                 alignment : WrapAlignment.center,
                                 children: [
-                                  if(!widget.isLoginByEmail)
+                                  if(!widget.isLoginByEmail)...
+                                 [ CachedNetworkImage(
+                                            imageUrl: widget.flagImage,
+                                            fit: BoxFit.fill,
+                                            placeholder: (context, url) =>
+                                                const Center(
+                                              child: Loader(),
+                                            ),
+                                            errorWidget: (context, url, error) =>
+                                                const Center(
+                                              child: Text(""),
+                                            ),
+                                          ),
+                                          SizedBox(width: size.width * 0.02),
                                   MyText(
                                     text: widget.dialCode,
                                     textStyle: Theme.of(context)
                                         .textTheme
                                         .titleLarge!
                                         .copyWith(fontSize: 12),
-                                  ),
+                                  ),],
                                   SizedBox(width: size.width * 0.02),
                                   MyText(
                                     text: widget.emailOrMobile.text,
@@ -256,12 +269,18 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                               ),
                             const SizedBox(height: 20),
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
+
+                              decoration: BoxDecoration(
+                              color: Theme.of(context).shadowColor,
+                              borderRadius: BorderRadius.circular(4),
+                              ),
+                              // margin: const EdgeInsets.symmetric(horizontal: 4),
+                              padding:  EdgeInsets.symmetric(horizontal: size.width * 0.2, vertical: 15),
                               child: RichText(
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).disabledColor),
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                       text:
                                           '${AppLocalizations.of(context)!.isThisCorrect} ',
                                     ),
@@ -285,15 +304,15 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 20),
-                            CustomButton(
-                              buttonName: AppLocalizations.of(context)!.continueN,
-                              borderRadius: 18,
-                              width: size.width,
-                              height: size.width * 0.12,
-                              isLoader: widget.isShowLoader,
-                              onTap: widget.continueFunc,
-                            )
+                            const SizedBox(height: 40),
+                            // CustomButton(
+                            //   buttonName: AppLocalizations.of(context)!.continueN,
+                            //   borderRadius: 18,
+                            //   width: size.width,
+                            //   height: size.width * 0.12,
+                            //   isLoader: widget.isShowLoader,
+                            //   onTap: widget.continueFunc,
+                            // )
                           ],
                         ),
                       ),
@@ -319,7 +338,13 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                             if (widget.formKey.currentState!.validate() &&
                                 widget.emailOrMobile.text.isNotEmpty) {
                               FocusScope.of(context).requestFocus(FocusNode());
-                              _continuePressed();
+                              // _continuePressed();
+                              // // if status is _controller.forward() then call the function
+                              if (_controller.status == AnimationStatus.completed) {
+                                widget.continueFunc();
+                              } else {
+                                _continuePressed();
+                              }
                             }
                           },
                         ),

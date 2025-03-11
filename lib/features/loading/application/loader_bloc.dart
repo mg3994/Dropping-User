@@ -28,6 +28,7 @@ class LoaderBloc extends Bloc<LoaderEvent, LoaderState> {
       CheckPermissionEvent event, Emitter<LoaderState> emit) async {
     PermissionStatus permission;
     permission = await Permission.location.status;
+    debugPrint('permission $permission');
     if (
         permission == PermissionStatus.permanentlyDenied) {
       locationApproved = false;
