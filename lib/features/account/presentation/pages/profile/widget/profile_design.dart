@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:restart_tagxi/core/utils/custom_navigation_icon.dart';
 import '../../../../../../app/localization.dart';
 import '../../../../../../common/common.dart';
 import '../../../../../../core/utils/custom_text.dart';
@@ -70,27 +71,43 @@ class ProfileWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: size.width * 0.1,
-                          width: size.width * 0.1,
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
-                          child: const Icon(CupertinoIcons.back,
-                              // color: Theme.of(context).primaryColorLight,
-                              color: AppColors.whiteText),
-                        ),
-                        Text(
-                          !isEditPage
-                              ? AppLocalizations.of(context)!.back.toLowerCase()
-                              : AppLocalizations.of(context)!.personalInformation,
-                          style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                              // color: Theme.of(context).primaryColorLight,
-                              color: AppColors.whiteText,fontSize: 20),
-                        ),
-                      ],
+                    
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: NavigationIconWidget(
+                                              icon: InkWell(
+                       onTap: backOnTap ??
+                                          () {
+                                            Navigator.pop(context, user);
+                                          
+                        // if (context.read<HomeBloc>().userData != null) {
+                        //   Navigator.pushNamed(
+                        //           context, AccountPage.routeName,
+                        //           arguments: AccountPageArguments(
+                        //               userData: context
+                        //                   .read<HomeBloc>()
+                        //                   .userData!))
+                        //       .then(
+                        //     (value) {
+                        //       if (!context.mounted) return;
+                        //       context
+                        //           .read<HomeBloc>()
+                        //           .add(GetDirectionEvent());
+                        //       if (value != null) {
+                        //         context.read<HomeBloc>().userData =
+                        //             value as UserDetail;
+                        //         context.read<HomeBloc>().add(UpdateEvent());
+                        //       }
+                        //     },
+                        //   );
+                        // }
+                      },
+                      child: Icon(CupertinoIcons.back,
+                          size: 18,
+                          color: Theme.of(context).primaryColorDark),
+                                              ),
+                                              isShadowWidget: true,
+                                            ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -187,30 +204,57 @@ class ProfileWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: (!isEditPage) ? size.height * 0.3 : size.height * 0.25,
+          top: (!isEditPage) ? size.height * 0.29 : size.height * 0.25,
           bottom: 0,
           left: 0,
           right: 0,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
+          child: ClipRRect(
+    borderRadius: const BorderRadius.only(
+      topLeft: Radius.circular(30),
+      // topRight: Radius.circular(15), // Uncomment if needed
+    ),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                // borderRadius: const BorderRadius.only(
+                //   topLeft: Radius.circular(30),
+                //   // topRight: Radius.circular(15),
+                // ),
               ),
+              child: child,
             ),
-            child: child,
           ),
         ),
         if (!isEditPage)
           Positioned(
-            top: size.height * 0.25,
+            top: size.height * 0.25, // change it to make it down
             left: size.width * 0.05,
             right: size.width * 0.05,
             child: Container(
               height: size.width * 0.21,
               width: size.width * 0.8,
-              decoration: BoxDecoration(
+              // decoration: BoxDecoration(
+              //     color: Theme.of(context).scaffoldBackgroundColor,
+              //     borderRadius: BorderRadius.circular(5),
+              //     boxShadow: [
+              //       BoxShadow(
+              //           color: Theme.of(context).shadowColor,
+              //           spreadRadius: 2.0,
+              //           blurRadius: 2.0)
+              //     ]),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 8, vertical: size.width * 0.02),
+                  child: Row(
+                    spacing: 15,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (showWallet) ...[
+                        Container(
+                                        decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: [
@@ -219,21 +263,11 @@ class ProfileWidget extends StatelessWidget {
                         spreadRadius: 2.0,
                         blurRadius: 2.0)
                   ]),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 8, vertical: size.width * 0.02),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      if (showWallet) ...[
-                        SizedBox(
                           width: size.width * 0.8 / 3,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                             mainAxisAlignment: MainAxisAlignment.spaceBetween, 
                             children: [
+                               const SizedBox(height: 1), // Adds space from the top
                               MyText(
                                   text: AppLocalizations.of(context)!
                                       .walletBalance,
@@ -245,7 +279,7 @@ class ProfileWidget extends StatelessWidget {
                                           color: Theme.of(context)
                                               .disabledColor
                                               .withOpacity(0.5),
-                                          fontSize: 14)),
+                                          fontSize: 10)),
                               MyText(
                                   text: walletBalance,
                                   textStyle: Theme.of(context)
@@ -255,23 +289,44 @@ class ProfileWidget extends StatelessWidget {
                                           // color: Theme.of(context).primaryColor
                                           color: Theme.of(context)
                                               .primaryColorDark)),
+                                               ClipRRect(
+                                                           borderRadius: const BorderRadius.only(
+                                                             bottomLeft: Radius.circular(5),
+                                                             bottomRight: Radius.circular(5),
+                                                           ),
+                                                           child: Container(
+                                                             height: 3,
+                                                             width: double.infinity,
+                                                             color: Colors.brown,
+                                                           ),
+                                                         ),
                             ],
                           ),
                         ),
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(vertical: size.width * 0.02),
-                          child: VerticalDivider(
-                              color: Theme.of(context).dividerColor),
-                        ),
+                        // Padding(
+                        //   padding:
+                        //       EdgeInsets.symmetric(vertical: size.width * 0.02),
+                        //   child: VerticalDivider( // No Need Of Vertical Divider
+                        //       color: Theme.of(context).dividerColor),
+                        // ),
                       ],
-                      SizedBox(
+                      Container(
+                                      decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(5),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Theme.of(context).shadowColor,
+                        spreadRadius: 2.0,
+                        blurRadius: 2.0)
+                  ]),
                         width: showWallet
                             ? size.width * 0.8 / 3.5
                             : size.width * 0.8 / 2,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                             mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                            children: [
+                               const SizedBox(height: 1), // Adds space from the top
                             MyText(
                                 text: AppLocalizations.of(context)!.ratings,
                                 textStyle: Theme.of(context)
@@ -281,7 +336,7 @@ class ProfileWidget extends StatelessWidget {
                                         color: Theme.of(context)
                                             .disabledColor
                                             .withOpacity(0.5),
-                                        fontSize: 14)),
+                                        fontSize: 10)),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -299,23 +354,44 @@ class ProfileWidget extends StatelessWidget {
                                   size: 16,
                                 )
                               ],
-                            )
+                            ),
+                               ClipRRect(
+                                                           borderRadius: const BorderRadius.only(
+                                                             bottomLeft: Radius.circular(5),
+                                                             bottomRight: Radius.circular(5),
+                                                           ),
+                                                           child: Container(
+                                                             height: 3,
+                                                             width: double.infinity,
+                                                             color: Colors.brown,
+                                                           ),
+                                                         ),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: size.width * 0.02),
-                        child: VerticalDivider(
-                            color: Theme.of(context).dividerColor),
-                      ),
-                      SizedBox(
+                      // Padding(
+                      //   padding:
+                      //       EdgeInsets.symmetric(vertical: size.width * 0.02),
+                      //   child: VerticalDivider(
+                      //       color: Theme.of(context).dividerColor),
+                      // ),
+                      Container(
+                                      decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(5),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Theme.of(context).shadowColor,
+                        spreadRadius: 2.0,
+                        blurRadius: 2.0)
+                  ]),
                         width: showWallet
                             ? size.width * 0.8 / 3
                             : size.width * 0.8 / 2,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                            children: [
+                               const SizedBox(height: 1), // Adds space from the top
                             MyText(
                                 text: AppLocalizations.of(context)!.totalRides,
                                 textStyle: Theme.of(context)
@@ -325,7 +401,7 @@ class ProfileWidget extends StatelessWidget {
                                         color: Theme.of(context)
                                             .disabledColor
                                             .withOpacity(0.5),
-                                        fontSize: 14)),
+                                        fontSize: 10)),
                             MyText(
                                 text: trips,
                                 textStyle: Theme.of(context)
@@ -334,6 +410,17 @@ class ProfileWidget extends StatelessWidget {
                                     .copyWith(
                                         color: Theme.of(context)
                                             .primaryColorDark)),
+                                               ClipRRect(
+                                                           borderRadius: const BorderRadius.only(
+                                                             bottomLeft: Radius.circular(5),
+                                                             bottomRight: Radius.circular(5),
+                                                           ),
+                                                           child: Container(
+                                                             height: 3,
+                                                             width: double.infinity,
+                                                             color: Colors.brown,
+                                                           ),
+                                                         ),
                           ],
                         ),
                       ),

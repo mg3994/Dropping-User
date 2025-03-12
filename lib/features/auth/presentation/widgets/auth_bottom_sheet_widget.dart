@@ -145,6 +145,7 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
                           borderRadius: 2,
                           controller: widget.emailOrMobile,
                           filled: true,
+                           fillColor: Theme.of(context).dialogBackgroundColor,
                           focusNode: widget.focusNode,
                           hintText: AppLocalizations.of(context)!
                               .emailAddressOrMobileNumber,
@@ -325,28 +326,34 @@ class AuthBottomSheetWidgetState extends State<AuthBottomSheetWidget>
 //ADD Here [Start]
  SizedBox(height: size.width * 0.05),
                       Center(
-                        child: CustomButton(
-                          buttonName: AppLocalizations.of(context)!.continueN,
-                          borderRadius: 2,
-                          width: size.width,
-                          height: size.width * 0.12,
-                          textColor: AppColors.white,
-                          buttonColor: (widget.emailOrMobile.text.isEmpty)
-                              ? Theme.of(context).disabledColor.withOpacity(0.5)
-                              : null,
-                          onTap: () {
-                            if (widget.formKey.currentState!.validate() &&
-                                widget.emailOrMobile.text.isNotEmpty) {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                              // _continuePressed();
-                              // // if status is _controller.forward() then call the function
-                              if (_controller.status == AnimationStatus.completed) {
-                                widget.continueFunc();
-                              } else {
-                                _continuePressed();
-                              }
-                            }
-                          },
+                        child: ValueListenableBuilder(
+                          valueListenable: _controller,
+                          builder: (context, value, child) {
+                            return CustomButton(
+                              buttonName:(_controller.status == AnimationStatus.completed) ? AppLocalizations.of(context)!.confirm :AppLocalizations.of(context)!.continueN,
+                              isLoader: widget.isShowLoader,
+                              borderRadius: 2,
+                              width: size.width,
+                              height: size.width * 0.12,
+                              textColor: AppColors.white,
+                              buttonColor: (widget.emailOrMobile.text.isEmpty)
+                                  ? Theme.of(context).disabledColor.withOpacity(0.5)
+                                  : null,
+                              onTap: () {
+                                if (widget.formKey.currentState!.validate() &&
+                                    widget.emailOrMobile.text.isNotEmpty) {
+                                  FocusScope.of(context).requestFocus(FocusNode());
+                                  // _continuePressed();
+                                  // // if status is _controller.forward() then call the function
+                                  if (_controller.status == AnimationStatus.completed) {
+                                    widget.continueFunc();
+                                  } else {
+                                    _continuePressed();
+                                  }
+                                }
+                              },
+                            );
+                          }
                         ),
                       ),
                       SizedBox(height: size.width * 0.02),

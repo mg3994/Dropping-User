@@ -477,58 +477,58 @@ class HomeBodyWidget extends StatelessWidget {
                         ),
                         isShadowWidget: true,
                       ),
-                      SizedBox(width: size.width * 0.03),
-                      InkWell(
-                        onTap: () {
-                          if (context
-                                      .read<HomeBloc>()
-                                      .userData!
-                                      .enableModulesForApplications ==
-                                  'both' ||
-                              context
-                                      .read<HomeBloc>()
-                                      .userData!
-                                      .enableModulesForApplications ==
-                                  'taxi') {
-                            context.read<HomeBloc>().add(
-                                DestinationSelectEvent(isPickupChange: true));
-                          } else {
-                            context.read<HomeBloc>().add(
-                                ServiceTypeChangeEvent(serviceTypeIndex: 1));
-                          }
-                        },
-                        child: Container(
-                          width: size.width * 0.78,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 6),
-                            child: Row(
-                              children: [
-                                const PickupIcon(),
-                                SizedBox(width: size.width * 0.01),
-                                SizedBox(
-                                  width: size.width * 0.63,
-                                  child: MyText(
-                                      text: context
-                                          .read<HomeBloc>()
-                                          .currentLocation,
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium,
-                                      overflow: TextOverflow.ellipsis),
-                                ),
-                                Icon(Icons.edit_outlined,
-                                    size: 18,
-                                    color: Theme.of(context).disabledColor),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      // SizedBox(width: size.width * 0.03),
+                      // InkWell(
+                      //   onTap: () {
+                      //     if (context
+                      //                 .read<HomeBloc>()
+                      //                 .userData!
+                      //                 .enableModulesForApplications ==
+                      //             'both' ||
+                      //         context
+                      //                 .read<HomeBloc>()
+                      //                 .userData!
+                      //                 .enableModulesForApplications ==
+                      //             'taxi') {
+                      //       context.read<HomeBloc>().add(
+                      //           DestinationSelectEvent(isPickupChange: true));
+                      //     } else {
+                      //       context.read<HomeBloc>().add(
+                      //           ServiceTypeChangeEvent(serviceTypeIndex: 1));
+                      //     }
+                      //   },
+                      //   child: Container(
+                      //     width: size.width * 0.78,
+                      //     decoration: BoxDecoration(
+                      //       color: Theme.of(context).scaffoldBackgroundColor,
+                      //       borderRadius: BorderRadius.circular(5),
+                      //     ),
+                      //     child: Padding(
+                      //       padding: const EdgeInsets.symmetric(
+                      //           horizontal: 5, vertical: 6),
+                      //       child: Row(
+                      //         children: [
+                      //           const PickupIcon(),
+                      //           SizedBox(width: size.width * 0.01),
+                      //           SizedBox(
+                      //             width: size.width * 0.63,
+                      //             child: MyText(
+                      //                 text: context
+                      //                     .read<HomeBloc>()
+                      //                     .currentLocation,
+                      //                 textStyle: Theme.of(context)
+                      //                     .textTheme
+                      //                     .bodyMedium,
+                      //                 overflow: TextOverflow.ellipsis),
+                      //           ),
+                      //           Icon(Icons.edit_outlined,
+                      //               size: 18,
+                      //               color: Theme.of(context).disabledColor),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

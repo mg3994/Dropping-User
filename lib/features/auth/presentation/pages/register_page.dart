@@ -259,6 +259,8 @@ SizedBox(height: size.width * 0.02),
     return CustomTextField(
       controller: context.read<AuthBloc>().rPasswordController,
       filled: true,
+      fillColor: Theme.of(context).dialogBackgroundColor,
+
       borderRadius: 2,
       obscureText: !context.read<AuthBloc>().showPassword,
       hintText: AppLocalizations.of(context)!.enterYourPassword,
@@ -304,7 +306,7 @@ SizedBox(height: size.width * 0.02),
       filled: true,
       fillColor: context.read<AuthBloc>().isLoginByEmail
           ? Theme.of(context).disabledColor.withOpacity(0.1)
-          : null,
+          : Theme.of(context).dialogBackgroundColor,
       hintText: AppLocalizations.of(context)!.enterYourEmail,
       validator: (value) {
         if (value!.isNotEmpty && !AppValidation.emailValidate(value)) {
@@ -325,7 +327,8 @@ SizedBox(height: size.width * 0.02),
       filled: true,
       fillColor: !context.read<AuthBloc>().isLoginByEmail
           ? Theme.of(context).disabledColor.withOpacity(0.1)
-          : null,
+          :  Theme.of(context).dialogBackgroundColor
+,
       enabled: context.read<AuthBloc>().isLoginByEmail,
       hintText: AppLocalizations.of(context)!.enterYourMobile,
       keyboardType: TextInputType.number,
@@ -387,6 +390,7 @@ SizedBox(height: size.width * 0.02),
       controller: context.read<AuthBloc>().rUserNameController,
       borderRadius: 2,
       filled: true,
+      fillColor: Theme.of(context).dialogBackgroundColor,
       hintText: AppLocalizations.of(context)!.enterYourName,
       validator: (value) {
         if (value!.isEmpty) {
@@ -438,7 +442,7 @@ SizedBox(height: size.width * 0.02),
             fontWeight: FontWeight.w400,
             color: Theme.of(context).hintColor),
         filled: true,
-        fillColor: Theme.of(context).scaffoldBackgroundColor,
+        fillColor: Theme.of(context).dialogBackgroundColor,
         errorStyle: TextStyle(
           color: AppColors.red.withOpacity(0.8),
           fontWeight: FontWeight.bold,

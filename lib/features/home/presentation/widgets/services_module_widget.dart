@@ -16,7 +16,7 @@ class ServicesModuleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return Container(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.only(left: 12, right: 12, top: 12,bottom: 75),
         
                 decoration: BoxDecoration(
                   color: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restart_tagxi/common/app_constants.dart';
@@ -86,32 +87,57 @@ class AccountPage extends StatelessWidget {
                                         .copyWith(
                                             fontSize:
                                                 AppConstants().subHeaderSize)),
-                                PageOptions(
-                                  optionName: AppLocalizations.of(context)!
-                                      .personalInformation,
-                                  onTap: () {
-                                    Navigator.pushNamed(
+                                         DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ), 
 
-                                            context, ProfileInfoPage.routeName,
-                                            arguments: ProfileInfoPageArguments(
-                                                userData: context
-                                                    .read<AccBloc>()
-                                                    .userData!))
-                                        .then((value) {
-                                      if (!context.mounted) return;
-                                      if (value != null) {
-                                        // Update the userData with the returned value
-                                        context.read<AccBloc>().userData =
-                                            value as UserDetail;
-                                        // Dispatch an event to force a state rebuild with updated data
-                                        context
-                                            .read<AccBloc>()
-                                            .add(AccUpdateEvent());
-                                      }
-                                    });
-                                  },
-                                ),
-                                PageOptions(
+                                Container(
+                                  margin: const EdgeInsets.only(top: 8),
+                                                  padding: const EdgeInsets.all(16.0),
+
+                                        decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                                  child: Column(
+                                    children: [
+                                      PageOptions(
+                                        optionName: AppLocalizations.of(context)!
+                                            .personalInformation,
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                      
+                                                  context, ProfileInfoPage.routeName,
+                                                  arguments: ProfileInfoPageArguments(
+                                                      userData: context
+                                                          .read<AccBloc>()
+                                                          .userData!))
+                                              .then((value) {
+                                            if (!context.mounted) return;
+                                            if (value != null) {
+                                              // Update the userData with the returned value
+                                              context.read<AccBloc>().userData =
+                                                  value as UserDetail;
+                                              // Dispatch an event to force a state rebuild with updated data
+                                              context
+                                                  .read<AccBloc>()
+                                                  .add(AccUpdateEvent());
+                                            }
+                                          });
+                                        },
+                                      ),
+  PageOptions(
                                   optionName: AppLocalizations.of(context)!
                                       .notifications,
                                   onTap: () {
@@ -258,7 +284,12 @@ class AccountPage extends StatelessWidget {
                                     );
                                   },
                                 ),
-                                const SizedBox(height: 20),
+                               
+                                      ///
+                                    ],
+                                  ),
+                                ),
+ const SizedBox(height: 20),
                                 MyText(
                                   text: AppLocalizations.of(context)!.general,
                                   textStyle: Theme.of(context)
@@ -268,6 +299,33 @@ class AccountPage extends StatelessWidget {
                                           fontSize:
                                               AppConstants().subHeaderSize),
                                 ),
+                                      DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
+                                Container(
+                                   margin: const EdgeInsets.only(top: 8),
+                                                  padding: const EdgeInsets.all(16.0),
+
+                                        decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                
+                                  
+                                  child: Column(
+                                  
+                                  children: [
                                 PageOptions(
                                   optionName:
                                       AppLocalizations.of(context)!.chatWithUs,
@@ -298,7 +356,8 @@ class AccountPage extends StatelessWidget {
                                         context, SettingsPage.routeName);
                                   },
                                 ),
-                                SizedBox(height: size.width * 0.1),
+                                SizedBox(height: size.width * 0.1),],),)
+                              
                               ],
                             ),
                           ),
