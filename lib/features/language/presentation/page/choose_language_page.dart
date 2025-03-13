@@ -82,7 +82,7 @@ class ChooseLanguagePage extends StatelessWidget {
                                     },
                                     icon: const Icon(
                                       Icons.arrow_back_ios,
-                                      color: AppColors.black,
+                                      // color: AppColors.black,
                                       size: 20,
                                     ),
                                   ),
@@ -93,7 +93,7 @@ class ChooseLanguagePage extends StatelessWidget {
                                     .textTheme
                                     .titleSmall! // Changeset: BY MG: from Large
                                     .copyWith(
-                                      color: AppColors.black,
+                                      // color: AppColors.black,
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold
                                     )),
