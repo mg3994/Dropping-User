@@ -1,4 +1,5 @@
 import 'package:dotted_line/dotted_line.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restart_tagxi/common/app_constants.dart';
@@ -76,6 +77,7 @@ class AccountPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                             
                               children: [
                                 SizedBox(height: size.width * 0.2),
                                 MyText(
@@ -87,6 +89,7 @@ class AccountPage extends StatelessWidget {
                                         .copyWith(
                                             fontSize:
                                                 AppConstants().subHeaderSize)),
+                                                 SizedBox(height: size.width * 0.02),
                                          DottedLine( // ADDED: BY MG: Dotted line
                                 dashLength: 2,
                                 dashGapLength: 2,
@@ -96,12 +99,12 @@ class AccountPage extends StatelessWidget {
                               ), 
 
                                 Container(
-                                  margin: const EdgeInsets.only(top: 8),
-                                                  padding: const EdgeInsets.all(16.0),
+                                  margin: const EdgeInsets.only(top: 10),
+                                                  padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 10),
 
                                         decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
-                  borderRadius: BorderRadius.circular(5.0),
+                  borderRadius: BorderRadius.circular(8.0),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
@@ -113,6 +116,7 @@ class AccountPage extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       PageOptions(
+                                        icon: Icon(CupertinoIcons.person,),
                                         optionName: AppLocalizations.of(context)!
                                             .personalInformation,
                                         onTap: () {
@@ -138,6 +142,7 @@ class AccountPage extends StatelessWidget {
                                         },
                                       ),
   PageOptions(
+     icon: Icon(CupertinoIcons.bell,),
                                   optionName: AppLocalizations.of(context)!
                                       .notifications,
                                   onTap: () {
@@ -146,6 +151,8 @@ class AccountPage extends StatelessWidget {
                                   },
                                 ),
                                 PageOptions(
+     icon: Icon(CupertinoIcons.book,),
+
                                   optionName:
                                       AppLocalizations.of(context)!.history,
                                   onTap: () {
@@ -159,6 +166,8 @@ class AccountPage extends StatelessWidget {
                                         .showOutstationRideFeature ==
                                     '1')
                                   PageOptions(
+     icon: Icon(CupertinoIcons.car,),
+
                                     optionName: AppLocalizations.of(context)!
                                         .outStation,
                                     onTap: () {
@@ -175,6 +184,8 @@ class AccountPage extends StatelessWidget {
                                         .showWalletFeatureOnMobileApp ==
                                     '1')
                                   PageOptions(
+     icon: Icon(Icons.add_business,),
+
                                     optionName:
                                         AppLocalizations.of(context)!.payment,
                                     onTap: () {
@@ -194,6 +205,8 @@ class AccountPage extends StatelessWidget {
                                     },
                                   ),
                                 PageOptions(
+     icon: Icon(Icons.wallet,),
+
                                   optionName:
                                       AppLocalizations.of(context)!.referEarn,
                                   onTap: () {
@@ -210,6 +223,9 @@ class AccountPage extends StatelessWidget {
                                   },
                                 ),
                                 PageOptions(
+                                  
+     icon: Icon(Icons.language_outlined,),
+
                                   optionName: AppLocalizations.of(context)!
                                       .changeLanguage,
                                   onTap: () {
@@ -229,6 +245,8 @@ class AccountPage extends StatelessWidget {
                                   },
                                 ),
                                 PageOptions(
+     icon: Icon(CupertinoIcons.placemark),
+
                                   optionName: AppLocalizations.of(context)!
                                       .favoriteLocation,
                                   onTap: () {
@@ -254,6 +272,8 @@ class AccountPage extends StatelessWidget {
                                   },
                                 ),
                                 PageOptions(
+     icon: Icon(CupertinoIcons.info),
+
                                   optionName: AppLocalizations.of(context)!.sos,
                                   onTap: () {
                                     Navigator.pushNamed(
@@ -327,6 +347,8 @@ class AccountPage extends StatelessWidget {
                                   
                                   children: [
                                 PageOptions(
+     icon: Icon(CupertinoIcons.chat_bubble_2),
+
                                   optionName:
                                       AppLocalizations.of(context)!.chatWithUs,
                                   onTap: () {
@@ -339,6 +361,8 @@ class AccountPage extends StatelessWidget {
                                   },
                                 ),
                                 PageOptions(
+     icon: Icon(CupertinoIcons.flag),
+
                                   optionName: AppLocalizations.of(context)!
                                       .makeComplaint,
                                   onTap: () {
@@ -349,6 +373,8 @@ class AccountPage extends StatelessWidget {
                                   },
                                 ),
                                 PageOptions(
+     icon: Icon(CupertinoIcons.gear),
+                                  
                                   optionName:
                                       AppLocalizations.of(context)!.settings,
                                   onTap: () {
@@ -356,7 +382,8 @@ class AccountPage extends StatelessWidget {
                                         context, SettingsPage.routeName);
                                   },
                                 ),
-                                SizedBox(height: size.width * 0.1),],),)
+                                // SizedBox(height: size.width * 0.1),
+                                ],),)
                               
                               ],
                             ),
