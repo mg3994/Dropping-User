@@ -20,7 +20,7 @@ class CancelRideWidget extends StatelessWidget {
         builder: (context, state) {
           return Container(
         padding: MediaQuery.of(context).viewInsets,
-        decoration: BoxDecoration(
+        decoration: BoxDecoration( //TODO:
             color: Colors.white,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(size.width * 0.05),

@@ -120,7 +120,7 @@ class _LandingPageState extends State<LandingPage> {
                   itemBuilder: (context, index) {
                     return Container(
                           decoration: BoxDecoration(
-                  color: Colors.white,
+                                    color: Theme.of(context).dialogBackgroundColor,
                   borderRadius: BorderRadius.circular(2.0),
                   boxShadow: [
                     BoxShadow(
