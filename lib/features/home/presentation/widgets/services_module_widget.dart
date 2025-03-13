@@ -19,7 +19,7 @@ class ServicesModuleWidget extends StatelessWidget {
         padding: const EdgeInsets.only(left: 12, right: 12, top: 12,bottom: 75),
         
                 decoration: BoxDecoration(
-                   color: Theme.of(context).dialogBackgroundColor,
+                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(6),
                   boxShadow: [
                     BoxShadow(

@@ -76,7 +76,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                       .textTheme
                                       .displayMedium!
                                       .copyWith(
-                                          color: AppColors.black,
+                                          // color: AppColors.black,
                                           fontSize:
                                               AppConstants().subHeaderSize),
                                 ),
@@ -99,7 +99,8 @@ class ForgotPasswordPage extends StatelessWidget {
                                                                 Container(
                                                   padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                                  color: Theme.of(context).dialogBackgroundColor,
+                                                       color: Theme.of(context).cardColor,
+
                   borderRadius: BorderRadius.circular(2.0),
                   boxShadow: [
                     BoxShadow(

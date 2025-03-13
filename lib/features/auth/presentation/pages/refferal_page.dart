@@ -64,7 +64,7 @@ class RefferalPage extends StatelessWidget {
                           Container(
                                                   padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                   color: Theme.of(context).dialogBackgroundColor,
+                                                       color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(2.0),
                   boxShadow: [
                     BoxShadow(

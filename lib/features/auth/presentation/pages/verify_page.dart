@@ -168,7 +168,7 @@ class _VerifyPageState extends State<VerifyPage>
                                                             Container(
                                                   padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).dialogBackgroundColor,
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(2.0),
                   boxShadow: [
                     BoxShadow(
@@ -215,9 +215,7 @@ class _VerifyPageState extends State<VerifyPage>
                                   textStyle: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
-                                      .copyWith(
-                                        color: AppColors.black,
-                                      ),
+                                     
                                 ),
                                 const SizedBox(width: 10),
                                 InkWell(
@@ -274,7 +272,7 @@ class _VerifyPageState extends State<VerifyPage>
             MyText(
               text: AppLocalizations.of(context)!.password,
               textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: AppColors.black,
+                  // color: AppColors.black,
                   fontSize: AppConstants().subHeaderSize,
                   fontWeight: FontWeight.bold,
                   
@@ -298,7 +296,7 @@ class _VerifyPageState extends State<VerifyPage>
                 text: AppLocalizations.of(context)!.signInUsingOtp,
                 textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontSize: 12,
-                      color: AppColors.black,
+                      // color: AppColors.black,
                       fontWeight: FontWeight.w600,
                     ),
               ),
@@ -344,7 +342,7 @@ class _VerifyPageState extends State<VerifyPage>
           child: MyText(
             text: '${AppLocalizations.of(context)!.forgetPassword} ?',
             textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: AppColors.greyHintColor,
+                color: Theme.of(context).hintColor,
                 fontSize: AppConstants().subHeaderSize),
           ),
         ),
@@ -370,7 +368,7 @@ class _VerifyPageState extends State<VerifyPage>
             MyText(
               text: AppLocalizations.of(context)!.enterOtp,
               textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: AppColors.black,
+                  // color: AppColors.black,
                   fontSize: AppConstants().subHeaderSize),
             ),
             if (widget.arg.userExist &&
@@ -405,10 +403,10 @@ class _VerifyPageState extends State<VerifyPage>
             borderRadius: BorderRadius.circular(2),
             fieldHeight: 45,
             fieldWidth: 45,
-            activeFillColor: Theme.of(context).dialogBackgroundColor,
-            inactiveFillColor: Theme.of(context).dialogBackgroundColor,
-            inactiveColor: Theme.of(context).dialogBackgroundColor,
-            selectedFillColor: Theme.of(context).dialogBackgroundColor,
+            activeFillColor: Theme.of(context).scaffoldBackgroundColor,
+            inactiveFillColor: Theme.of(context).scaffoldBackgroundColor,
+            inactiveColor: Theme.of(context).scaffoldBackgroundColor,
+            selectedFillColor: Theme.of(context).scaffoldBackgroundColor,
             selectedColor: Theme.of(context).disabledColor,
             selectedBorderWidth: 2,
             inactiveBorderWidth: 2,
@@ -460,7 +458,7 @@ class _VerifyPageState extends State<VerifyPage>
               fontSize: 10,
                   color: context.read<AuthBloc>().timerDuration != 0
                       ? AppColors.greyHintColor
-                      : AppColors.black,
+                      : Theme.of(context).disabledColor,
                 ),
           ),
         ),

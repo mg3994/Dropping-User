@@ -156,18 +156,22 @@ class ChooseLanguagePage extends StatelessWidget {
                                   Brightness.dark,
                               locale: Locale(languageList[index].lang)));
                     },
+                     borderRadius: BorderRadius.circular(5), // Ensures ripple effect follows the shape
+  splashColor: Colors.transparent, // Removes unwanted splash effect
+  highlightColor: Colors.transparent, // Prevents white highlight in dark mode
                     child: Container(
                       height: 50,
                       width: size.width,
+                   
                       decoration: BoxDecoration(
-                        color:AppColors.white,// AppColors.grey, // Commented: BY MG:RRR
+                           color: Theme.of(context).cardColor,// AppColors.grey, // Commented: BY MG:RRR
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                             color:
                                 (context.read<LanguageBloc>().selectedIndex ==
                                         index)
-                                    ? AppColors.black
-                                    : AppColors.white,
+                                    ? Theme.of(context).primaryColor 
+                                    : Theme.of(context).dialogBackgroundColor,
                             width:
                                 (context.read<LanguageBloc>().selectedIndex ==
                                         index)
@@ -209,7 +213,7 @@ class ChooseLanguagePage extends StatelessWidget {
                                 text: languageList[index].name,
                                 textStyle:
                                     Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                          color: AppColors.black,
+                                          // color: AppColors.black,
                                           fontWeight: FontWeight.bold
                                         ),
                               ),
