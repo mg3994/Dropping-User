@@ -21,6 +21,7 @@ class ProfileWidget extends StatelessWidget {
   final Widget? child;
   final UserDetail user;
   final void Function()? backOnTap;
+  final Widget? backtxt;
 
   const ProfileWidget({
     super.key,
@@ -33,7 +34,7 @@ class ProfileWidget extends StatelessWidget {
     required this.trips,
     this.child,
     this.backOnTap,
-    required this.user,
+    required this.user, this.backtxt,
   });
 
   @override
@@ -45,7 +46,7 @@ class ProfileWidget extends StatelessWidget {
           width: size.width,
           height: size.height,
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
+            color: AppColors.onSecondaryContainerLight,
             border: Border(
               bottom: BorderSide(color: Theme.of(context).primaryColorLight),
             ),
@@ -109,6 +110,7 @@ class ProfileWidget extends StatelessWidget {
                                               isShadowWidget: true,
                                             ),
                     ),
+                      if(backtxt != null)   backtxt! ,
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Transform.scale(
@@ -255,7 +257,8 @@ class ProfileWidget extends StatelessWidget {
                       if (showWallet) ...[
                         Container(
                                         decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
+                                    color: Theme.of(context).cardColor,
+
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: [
                     BoxShadow(
@@ -312,7 +315,7 @@ class ProfileWidget extends StatelessWidget {
                       ],
                       Container(
                                       decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
+                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: [
                     BoxShadow(
@@ -377,7 +380,7 @@ class ProfileWidget extends StatelessWidget {
                       // ),
                       Container(
                                       decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
+                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: [
                     BoxShadow(

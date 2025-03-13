@@ -157,8 +157,9 @@ class BottomSheetWidget extends StatelessWidget {
                                           padding:
                                               EdgeInsets.all(size.width * 0.02),
                                           decoration: BoxDecoration(
-                                            color: Theme.of(context)
-                                                .scaffoldBackgroundColor,
+                                            color: Theme.of(context).cardColor,
+                                            // Theme.of(context)
+                                            //     .scaffoldBackgroundColor,
                                             borderRadius:
                                                 BorderRadius.circular(2),
                                             border: Border.all(

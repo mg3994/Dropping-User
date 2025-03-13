@@ -46,9 +46,9 @@ class PageOptions extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 1,
-                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Row(
                     children: [
-                      if(icon != null) ...[NavigationIconWidget(icon: icon!,)],
+                      if(icon != null) ...[NavigationIconWidget(icon: icon!,),const SizedBox(width: 10,)],
                       MyText(
                         text: optionName,
                         textStyle: Theme.of(context)

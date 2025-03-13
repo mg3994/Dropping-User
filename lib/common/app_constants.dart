@@ -33,7 +33,7 @@ class AppConstants {
     // LocaleLanguageList(name: 'Spanish', lang: 'es',flag: 'https://onboarding.droppingride.com/image/country/flags/ES.png'),
   ];
 
-  static LatLng currentLocations = const LatLng(0, 0);
+  static LatLng currentLocations = const LatLng(5.6234971, -0.1995342);
   double headerSize = 18.0;
   double subHeaderSize = 12.0;
   double buttonTextSize = 18.0;

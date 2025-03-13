@@ -31,7 +31,7 @@ class AdminChat extends StatelessWidget {
               title: AppLocalizations.of(context)!.adminChat,
               onTap: () {
                 Navigator.of(context).pop();
-                context.read<AccBloc>().chatStream!.cancel();
+                context.read<AccBloc>().chatStream?.cancel();
               },
               controller: context.read<AccBloc>().scrollController,
               child: Padding(

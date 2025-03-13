@@ -319,6 +319,7 @@ class AccountPage extends StatelessWidget {
                                           fontSize:
                                               AppConstants().subHeaderSize),
                                 ),
+                                 SizedBox(height: size.width * 0.02),
                                       DottedLine( // ADDED: BY MG: Dotted line
                                 dashLength: 2,
                                 dashGapLength: 2,

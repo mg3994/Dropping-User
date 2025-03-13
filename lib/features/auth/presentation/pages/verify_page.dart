@@ -146,7 +146,8 @@ class _VerifyPageState extends State<VerifyPage>
                                         .textTheme
                                         .bodyMedium!
                                         .copyWith(
-                                          fontSize: 9,
+                                          fontSize:
+                                              AppConstants().subHeaderSize,
                                           color: AppColors.greyHintColor,
                                         ),
                                   )
@@ -158,7 +159,8 @@ class _VerifyPageState extends State<VerifyPage>
                                         .textTheme
                                         .bodyMedium!
                                         .copyWith(
-                                           fontSize: 9,
+                                          fontSize:
+                                              AppConstants().subHeaderSize,
                                           color: AppColors.greyHintColor,
                                         ),
                                     maxLines: 1,
