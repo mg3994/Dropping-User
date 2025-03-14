@@ -73,7 +73,7 @@ class ReferralPage extends StatelessWidget {
                           child: Column(
                             children: [
                               const Image(
-                                image: AssetImage(AppImages.referral),
+                                image: AssetImage(AppImages.logo),
                               ),
                               MyText(
                                 text: args.userData
@@ -86,67 +86,81 @@ class ReferralPage extends StatelessWidget {
                                         color:
                                             Theme.of(context).primaryColorDark,
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 20),
+                                        fontSize: 18),
                               ),
                             ],
                           ),
                         ),
-                        const Positioned(
-                            left: -80, top: -70, child: CircleOne()),
-                        const Positioned(
-                            left: 40, top: -130, child: CircleTwo()),
+                        // const Positioned(
+                        //     left: -80, top: -70, child: CircleOne()),
+                        // const Positioned(
+                        //     left: 40, top: -130, child: CircleTwo()),
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: size.width * 0.05,
-                          ),
-                          MyText(
-                            text: AppLocalizations.of(context)!
-                                .shareYourInviteCode,
-                            textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 20),
-                          ),
-                          SizedBox(height: size.width * 0.03),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              MyText(
-                                text: args.userData.refferalCode,
-                                textStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                        color: Theme.of(context).disabledColor,fontSize: 18),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Clipboard.setData(ClipboardData(
-                                      text: args.userData.refferalCode));
-                                  context.showSnackBar(
-                                      color: Theme.of(context).primaryColorDark,
-                                      message: AppLocalizations.of(context)!
-                                          .referralCodeCopy);
-                                },
-                                child: Icon(
-                                  Icons.copy,
-                                  color: Theme.of(context).primaryColorDark,
+                      child: Container(
+                                                                          padding: const EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(2.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // SizedBox(
+                            //   height: size.width * 0.05,
+                            // ),
+                            MyText(
+                              text: AppLocalizations.of(context)!
+                                  .shareYourInviteCode,
+                              textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15),
+                            ),
+                            SizedBox(height: size.width * 0.03),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                MyText(
+                                  text: args.userData.refferalCode,
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          color: Theme.of(context).disabledColor,fontSize: 12),
                                 ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: size.width * 0.03,
-                          ),
-                          Divider(
-                            height: 1,
-                            color: Theme.of(context).disabledColor,
-                          )
-                        ],
+                                InkWell(
+                                  onTap: () {
+                                    Clipboard.setData(ClipboardData(
+                                        text: args.userData.refferalCode));
+                                    context.showSnackBar(
+                                        color: Theme.of(context).primaryColorDark,
+                                        message: AppLocalizations.of(context)!
+                                            .referralCodeCopy);
+                                  },
+                                  child: Icon(
+                                    Icons.copy,
+                                    color: Theme.of(context).disabledColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: size.width * 0.03,
+                            ),
+                            Divider(
+                              height: 1,
+                              color: Theme.of(context).disabledColor,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     const Spacer(),

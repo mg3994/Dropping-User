@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restart_tagxi/l10n/app_localizations.dart';
@@ -60,7 +61,26 @@ class SosPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: size.width * 0.10),
+                      
+                     if(context.read<AccBloc>().sosdata.isNotEmpty && context.read<AccBloc>().sosdata.first.userType != 'admin')...[ SizedBox(height: size.width * 0.10),
+                      Row(children: [ MyText(
+                                    text: AppLocalizations.of(context)?.sosContacts,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(
+                                            fontWeight: FontWeight.w200,
+                                            ),
+                                    maxLines: 2,
+                                  ),],),
+                                      DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
+                                   SizedBox(height: size.width * 0.06),],
                       if (context.read<AccBloc>().isSosLoading)
                         ListView.builder(
                           itemCount: 6,
@@ -156,6 +176,14 @@ class SosPage extends StatelessWidget {
                                                 .primaryColorDark),
                                     maxLines: 2,
                                   ),
+                                   DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
+        
                                   MyText(
                                     text: sosdata[index].number,
                                     textStyle: Theme.of(context)
