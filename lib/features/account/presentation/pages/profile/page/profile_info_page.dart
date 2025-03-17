@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:restart_tagxi/common/common.dart';
 import 'package:restart_tagxi/core/network/extensions.dart';
 import '../../../../../../common/app_arguments.dart';
 import '../../../../../../core/utils/custom_loader.dart';
@@ -89,6 +90,7 @@ class ProfileInfoPage extends StatelessWidget {
                                         .textTheme
                                         .titleMedium!
                                         .copyWith(
+                                          color: AppColors.whiteText,
                                           fontWeight: FontWeight.bold,
                                             fontSize: 12),
                                   ),

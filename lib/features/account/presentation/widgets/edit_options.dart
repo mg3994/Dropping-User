@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:restart_tagxi/core/utils/custom_navigation_icon.dart';
 import '../../../../core/utils/custom_text.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -71,36 +73,44 @@ class EditOptions extends StatelessWidget {
                                             ],
                                           ),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(width: 12,),
                   
                     
-                    MyText(
-                      text: text,
-                      textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).disabledColor, fontSize: 16),
-                    ),
-                    Spacer(),
-                    (showEditIcon)
-                  ? Align(
-
-                    child: InkWell(
-                        onTap: onTap,
-                        highlightColor:
-                            Theme.of(context).disabledColor.withOpacity(0.1),
-                        splashColor:
-                            Theme.of(context).disabledColor.withOpacity(0.2),
-                        hoverColor:
-                            Theme.of(context).disabledColor.withOpacity(0.05),
-                        child: Icon(
-                          Icons.edit,
-                          size: 15,
-                          color: Theme.of(context).disabledColor,
+                    Expanded(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: MyText(
+                          text: text,
+                          textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              color: Theme.of(context).disabledColor, fontSize: 16),
                         ),
                       ),
+                    ),
+                    
+                    if(showEditIcon)
+                  Align(
+
+                    child: NavigationIconWidget(
+                     isShadowWidget: true,
+                      icon: InkWell(
+                          onTap: onTap,
+                          highlightColor:
+                              Theme.of(context).disabledColor.withOpacity(0.1),
+                          splashColor:
+                              Theme.of(context).disabledColor.withOpacity(0.2),
+                          hoverColor:
+                              Theme.of(context).disabledColor.withOpacity(0.05),
+                          child: Icon(
+                        Icons.mode_edit_outline,
+                            size: 12,
+                            color: Theme.of(context).disabledColor,
+                          ),
+                        ),
+                    ),
                   )
-                  : const SizedBox()
+                  
                   ],
                 ),
               ),

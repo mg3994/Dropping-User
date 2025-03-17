@@ -85,6 +85,7 @@ class BottomSheetWidget extends StatelessWidget {
                                             null)
                                       Flexible(
                                         child: NavigationIconWidget(
+                                          color: Theme.of(context).cardColor,
                                           icon: InkWell(
                                             onTap: () {
                                               Navigator.pushNamed(context,

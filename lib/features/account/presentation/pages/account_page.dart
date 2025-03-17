@@ -82,7 +82,7 @@ class AccountPage extends StatelessWidget {
                                 SizedBox(height: size.width * 0.2),
                                 MyText(
                                     text:
-                                        AppLocalizations.of(context)!.myAccount,
+                                        AppLocalizations.of(context)?.myAccount,
                                     textStyle: Theme.of(context)
                                         .textTheme
                                         .titleLarge!

@@ -39,6 +39,7 @@ class ConfirmFavLocation extends StatelessWidget {
                             Row(
                               children: [
                                 NavigationIconWidget(
+                                  color: Theme.of(context).cardColor,
                                   onTap: () {
                                     Navigator.pop(context);
                                   },
@@ -54,7 +55,7 @@ class ConfirmFavLocation extends StatelessWidget {
                                       text: AppLocalizations.of(context)!.newaddress,
                                       textStyle: Theme.of(context)
                                           .textTheme
-                                          .bodyLarge),
+                                          .bodySmall),
                                 )
                               ],
                             ),

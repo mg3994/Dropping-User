@@ -7,6 +7,7 @@ class NavigationIconWidget extends StatefulWidget {
   final void Function()? onTap;
   final double? height;
   final double? width;
+  final Color? color;
   const NavigationIconWidget({
     super.key,
     required this.icon,
@@ -14,6 +15,7 @@ class NavigationIconWidget extends StatefulWidget {
     this.onTap,
     this.height,
     this.width,
+    this.color,
   });
 
   @override
@@ -49,7 +51,7 @@ class _NavigationIconWidgetState extends State<NavigationIconWidget> {
         // width: widget.width ?? size.width * 0.1,
         decoration: BoxDecoration(
             // shape: BoxShape.circle,
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: widget.color ?? Theme.of(context).scaffoldBackgroundColor,
             border: Border.all(
                 color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
                 width: 0.5),

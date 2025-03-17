@@ -1458,7 +1458,7 @@ abstract class AppLocalizations {
   /// No description provided for @sosContacts.
   ///
   /// In en, this message translates to:
-  /// **'SOS Contats'**
+  /// **'SOS Contacts'**
   String get sosContacts;
 
   /// No description provided for @sosRideEmergencyText.

@@ -73,44 +73,50 @@ class ProfileWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: NavigationIconWidget(
-                                              icon: InkWell(
-                       onTap: backOnTap ??
-                                          () {
-                                            Navigator.pop(context, user);
-                                          
-                        // if (context.read<HomeBloc>().userData != null) {
-                        //   Navigator.pushNamed(
-                        //           context, AccountPage.routeName,
-                        //           arguments: AccountPageArguments(
-                        //               userData: context
-                        //                   .read<HomeBloc>()
-                        //                   .userData!))
-                        //       .then(
-                        //     (value) {
-                        //       if (!context.mounted) return;
-                        //       context
-                        //           .read<HomeBloc>()
-                        //           .add(GetDirectionEvent());
-                        //       if (value != null) {
-                        //         context.read<HomeBloc>().userData =
-                        //             value as UserDetail;
-                        //         context.read<HomeBloc>().add(UpdateEvent());
-                        //       }
-                        //     },
-                        //   );
-                        // }
-                      },
-                      child: Icon(CupertinoIcons.back,
-                          size: 18,
-                          color: Theme.of(context).primaryColorDark),
-                                              ),
-                                              isShadowWidget: true,
-                                            ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: NavigationIconWidget(
+                                                  icon: InkWell(
+                           onTap: backOnTap ??
+                                              () {
+                                                Navigator.pop(context, user);
+                                              
+                            // if (context.read<HomeBloc>().userData != null) {
+                            //   Navigator.pushNamed(
+                            //           context, AccountPage.routeName,
+                            //           arguments: AccountPageArguments(
+                            //               userData: context
+                            //                   .read<HomeBloc>()
+                            //                   .userData!))
+                            //       .then(
+                            //     (value) {
+                            //       if (!context.mounted) return;
+                            //       context
+                            //           .read<HomeBloc>()
+                            //           .add(GetDirectionEvent());
+                            //       if (value != null) {
+                            //         context.read<HomeBloc>().userData =
+                            //             value as UserDetail;
+                            //         context.read<HomeBloc>().add(UpdateEvent());
+                            //       }
+                            //     },
+                            //   );
+                            // }
+                          },
+                          child: Icon(CupertinoIcons.back,
+                              size: 18,
+                              color: Theme.of(context).primaryColorDark),
+                                                  ),
+                                                  isShadowWidget: true,
+                                                ),
+                        ),
+ if(backtxt != null)   backtxt! ,
+
+                      ],
                     ),
-                      if(backtxt != null)   backtxt! ,
+                     
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Transform.scale(

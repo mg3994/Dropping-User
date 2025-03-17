@@ -687,7 +687,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notifyAdmin => 'Notify Admin';
 
   @override
-  String get sosContacts => 'SOS Contats';
+  String get sosContacts => 'SOS Contacts';
 
   @override
   String get sosRideEmergencyText => 'By clicking this button, the admin will be notified that you are in an emergency.';
