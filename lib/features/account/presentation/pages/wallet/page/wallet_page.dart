@@ -1,4 +1,5 @@
 
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -260,12 +261,20 @@ class WalletHistoryPage extends StatelessWidget {
                                         .recentTransactions,
                                     textStyle: Theme.of(context)
                                         .textTheme
-                                        .bodyLarge!
+                                        .bodySmall!
                                         .copyWith(
+                                          fontWeight: FontWeight.bold,
                                             color: Theme.of(context)
                                                 .primaryColorDark),
                                   ),
                                 ],
+                              ),
+                               DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
                               ),
                               SizedBox(height: size.width * 0.025),
                               if (context.read<AccBloc>().isLoading &&
@@ -320,14 +329,14 @@ class WalletHistoryPage extends StatelessWidget {
                     right: size.width * 0.05,
                     child: Container(
                       padding: EdgeInsets.fromLTRB(
-                          size.width * 0.05,
+                          size.width * 0.02,
                           size.width * 0.025,
-                          size.width * 0.05,
+                          size.width * 0.02,
                           size.width * 0.025),
                       width: size.width * 0.7,
                       decoration: BoxDecoration(
                         color: Theme.of(context).scaffoldBackgroundColor,
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(4),
                         boxShadow: [
                           BoxShadow(
                               color: Theme.of(context).shadowColor,

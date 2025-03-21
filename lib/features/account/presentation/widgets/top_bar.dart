@@ -182,7 +182,7 @@ class TopBarDesign extends StatelessWidget {
                             );
                           },
                         ),
-                        SizedBox(height: size.width * 0.02),
+                        // SizedBox(height: size.width * 0.02),
                       ],
                     ],
                   ),
@@ -215,7 +215,7 @@ class TopBarDesign extends StatelessWidget {
         children: [
           MyText(
             text: title,
-            textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
+            textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
                 // color: index == selectedIndex
                 //     ? Theme.of(context).scaffoldBackgroundColor
                 //     : Theme.of(context).primaryColorLight,

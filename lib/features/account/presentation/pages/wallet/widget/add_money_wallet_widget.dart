@@ -39,11 +39,13 @@ class AddMoneyWalletWidget extends StatelessWidget {
               Container(
                 height: size.width * 0.128,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(4),
                   border: Border.all(
                       width: 1.2, color: Theme.of(context).disabledColor),
                 ),
                 child: Row(
+
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       width: size.width * 0.15,
@@ -70,6 +72,7 @@ class AddMoneyWalletWidget extends StatelessWidget {
                       width: size.width * 0.6,
                       alignment: Alignment.center,
                       child: TextField(
+                      
                         controller:
                             context.read<AccBloc>().walletAmountController,
                         onChanged: (value) {
@@ -188,7 +191,7 @@ class AddMoneyWalletWidget extends StatelessWidget {
                                   : AppColors.white,
                               width: 1.2),
                           color: Theme.of(context).scaffoldBackgroundColor,
-                          borderRadius: BorderRadius.circular(6)),
+                          borderRadius: BorderRadius.circular(4)),
                       alignment: Alignment.center,
                       child: MyText(
                         text: AppLocalizations.of(context)!.cancel,
@@ -231,7 +234,7 @@ class AddMoneyWalletWidget extends StatelessWidget {
                       width: size.width * 0.425,
                       decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
-                          borderRadius: BorderRadius.circular(6)),
+                          borderRadius: BorderRadius.circular(4)),
                       alignment: Alignment.center,
                       child: MyText(
                         text: AppLocalizations.of(context)!.addMoney,

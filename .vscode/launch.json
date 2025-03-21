@@ -5,6 +5,7 @@
   // "dart.additionalAnalyzerFileExtensions": ["drift"] // in user settings
   "version": "0.2.0",
   "configurations": [
+    
     {
       "name": "dev",
       "request": "launch",

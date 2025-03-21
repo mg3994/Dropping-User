@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restart_tagxi/l10n/app_localizations.dart';
@@ -54,7 +55,14 @@ class ComplaintListPage extends StatelessWidget {
                                     .bodyLarge!
                                     .copyWith(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 18)),
+                                        )),
+                                         DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
+                              ),
                             SizedBox(height: size.width * 0.05),
                             (state is MakeComplaintSuccess)
                                 ? (state.complaintList != null &&
@@ -101,13 +109,12 @@ class ComplaintListPage extends StatelessWidget {
                                                             BorderRadius
                                                                 .circular(3),
                                                         color: Theme.of(context)
-                                                            .disabledColor
-                                                            .withOpacity(0.07),
+                                                            .cardColor,
                                                       ),
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                .all(8.0),
+                                                              .symmetric(horizontal: 8,vertical: 2),
                                                         child: Row(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment

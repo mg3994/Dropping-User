@@ -505,9 +505,11 @@ class FavoriteLocationPage extends StatelessWidget {
                             itemCount: context.read<AccBloc>().others.length,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
-                            padding: const EdgeInsets.only(bottom: 30),
+                            padding: const EdgeInsets.only(bottom: 8),
                             itemBuilder: (context, index) {
                               return Container(
+                                //  margin: const EdgeInsets.only(top: 8),
+                                                  padding: const EdgeInsets.all(16.0),
                                  decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(5.0),
@@ -525,11 +527,14 @@ class FavoriteLocationPage extends StatelessWidget {
                                   children: [
                                     Row(
                                       children: [
-                                        Icon(
-                                          Icons.bookmark,
-                                          color: Theme.of(context)
-                                              .dividerColor
-                                              .withOpacity(0.5),
+                                         NavigationIconWidget(
+                                          icon: Icon(
+                                            Icons.bookmark,
+                                             size: size.width * 0.05,
+                                            // color: Theme.of(context)
+                                            //     .dividerColor
+                                            //     .withOpacity(0.5),
+                                          ),
                                         ),
                                         SizedBox(width: size.width * 0.02),
                                         Expanded(
@@ -604,21 +609,21 @@ class FavoriteLocationPage extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              top: size.width * 0.025,
-                                              bottom: size.width * 0.025),
-                                          height: size.width * 0.005,
-                                          width: size.width * 0.85,
-                                          color: Theme.of(context)
-                                              .dividerColor
-                                              .withOpacity(0.2),
-                                        ),
-                                      ],
-                                    ),
+                                    // Row(
+                                    //   mainAxisAlignment: MainAxisAlignment.end,
+                                    //   children: [
+                                    //     Container(
+                                    //       margin: EdgeInsets.only(
+                                    //           top: size.width * 0.025,
+                                    //           bottom: size.width * 0.025),
+                                    //       height: size.width * 0.005,
+                                    //       width: size.width * 0.85,
+                                    //       color: Theme.of(context)
+                                    //           .dividerColor
+                                    //           .withOpacity(0.2),
+                                    //     ),
+                                    //   ],
+                                    // ),
                                   ],
                                 ),
                               );

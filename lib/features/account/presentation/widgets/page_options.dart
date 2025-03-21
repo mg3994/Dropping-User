@@ -14,6 +14,7 @@ class PageOptions extends StatelessWidget {
   final Color? color;
   final Icon? icon;
   final Widget? child;
+  final bool? isSettingRoute;
 
   const PageOptions({
     super.key,
@@ -21,7 +22,7 @@ class PageOptions extends StatelessWidget {
     this.onTap,
     this.color,
     this.icon,
-    this.child,
+    this.child, this.isSettingRoute = false,
   });
 
   @override

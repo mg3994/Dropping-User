@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restart_tagxi/core/network/network.dart';
@@ -71,13 +72,21 @@ class ComplaintPage extends StatelessWidget {
                                 text: arg.title,
                                 textStyle: Theme.of(context)
                                     .textTheme
-                                    .bodyLarge!
+                                    .bodyMedium!
                                     .copyWith(fontWeight: FontWeight.bold),
+                              ),
+                               DottedLine( // ADDED: BY MG: Dotted line
+                                dashLength: 2,
+                                dashGapLength: 2,
+                                dashRadius: 1,
+                                lineThickness: 1,
+                                dashColor: Theme.of(context).dividerColor,
                               ),
                               SizedBox(height: size.height * 0.02),
                               Container(
                                 height: size.width * 0.5,
                                 decoration: BoxDecoration(
+                                  color: Theme.of(context).cardColor,
                                     borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
                                       color: Theme.of(context).dividerColor,
@@ -92,12 +101,15 @@ class ComplaintPage extends StatelessWidget {
                                       SizedBox(height: size.width * 0.03),
                                       SizedBox(height: size.width * 0.01),
                                       TextField(
+                                      
                                           controller: context
                                               .read<AccBloc>()
                                               .complaintController,
                                           maxLines: 5,
                                           textAlign: TextAlign.start,
                                           decoration: InputDecoration(
+                                             filled: true, // Enable filling
+    fillColor: Theme.of(context).cardColor, // Set the fill color
                                             hintText:
                                                 AppLocalizations.of(context)!
                                                     .writeYourComplaint,

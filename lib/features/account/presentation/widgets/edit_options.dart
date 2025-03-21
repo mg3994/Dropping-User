@@ -90,24 +90,29 @@ class EditOptions extends StatelessWidget {
                     ),
                     
                     if(showEditIcon)
-                  Align(
-
-                    child: NavigationIconWidget(
-                     isShadowWidget: true,
-                      icon: InkWell(
-                          onTap: onTap,
-                          highlightColor:
-                              Theme.of(context).disabledColor.withOpacity(0.1),
-                          splashColor:
-                              Theme.of(context).disabledColor.withOpacity(0.2),
-                          hoverColor:
-                              Theme.of(context).disabledColor.withOpacity(0.05),
-                          child: Icon(
-                        Icons.mode_edit_outline,
-                            size: 12,
-                            color: Theme.of(context).disabledColor,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 2),
+                    child: Align(
+                     
+                    
+                      child: NavigationIconWidget(
+                        
+                       isShadowWidget: true,
+                        icon: InkWell(
+                            onTap: onTap,
+                            highlightColor:
+                                Theme.of(context).disabledColor.withOpacity(0.1),
+                            splashColor:
+                                Theme.of(context).disabledColor.withOpacity(0.2),
+                            hoverColor:
+                                Theme.of(context).disabledColor.withOpacity(0.05),
+                            child: Icon(
+                          Icons.mode_edit_outline,
+                              size: 12,
+                              color: Theme.of(context).disabledColor,
+                            ),
                           ),
-                        ),
+                      ),
                     ),
                   )
                   
