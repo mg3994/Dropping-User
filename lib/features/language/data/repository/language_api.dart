@@ -22,7 +22,7 @@ class LanguageApi {
     try {
       final token = await AppSharedPreference.getToken();
       Response response = await DioProviderImpl().post(
-        ApiEndpoints.updateLanguage,
+        ApiEndpoints.updateLanguage, // TODO: Update it make it like where it is optional to pass Autorization token header
         headers: {'Authorization': token},
         body: jsonEncode(
           {'lang': langCode},

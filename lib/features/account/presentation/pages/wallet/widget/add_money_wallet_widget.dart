@@ -61,8 +61,8 @@ class AddMoneyWalletWidget extends StatelessWidget {
                       child: MyText(
                           text: context
                               .read<AccBloc>()
-                              .walletResponse!
-                              .currencySymbol),
+                              .walletResponse
+                              ?.currencySymbol ??  "_" ),
                     ),
                     SizedBox(
                       width: size.width * 0.05,
@@ -119,7 +119,7 @@ class AddMoneyWalletWidget extends StatelessWidget {
                       alignment: Alignment.center,
                       child: MyText(
                           text:
-                              '${context.read<AccBloc>().walletResponse!.currencySymbol.toString()}100'),
+                              '${context.read<AccBloc>().walletResponse?.currencySymbol.toString()}100'),
                     ),
                   ),
                   SizedBox(
@@ -143,7 +143,7 @@ class AddMoneyWalletWidget extends StatelessWidget {
                       alignment: Alignment.center,
                       child: MyText(
                           text:
-                              '${context.read<AccBloc>().walletResponse!.currencySymbol.toString()}500'),
+                              '${context.read<AccBloc>().walletResponse?.currencySymbol.toString()}500'),
                     ),
                   ),
                   SizedBox(
@@ -167,7 +167,7 @@ class AddMoneyWalletWidget extends StatelessWidget {
                       alignment: Alignment.center,
                       child: MyText(
                           text:
-                              '${context.read<AccBloc>().walletResponse!.currencySymbol.toString()}1000'),
+                              '${context.read<AccBloc>().walletResponse?.currencySymbol.toString()}1000'),
                     ),
                   ),
                 ],

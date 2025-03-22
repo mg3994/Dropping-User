@@ -1,6 +1,9 @@
 # TODO 
 > IOS Related Stuff
 
+> Admin Pannel (Laravel)
+* EndPoint   static String updateLanguage = 'api/v1/user/update-my-lang' => Make that Autorization header Optional, keep it out of Middelware 
+
 ```bash
 user_envato> flutter build apk -t lib/env/main_prod.dart --release
 Resolving dependencies... (7.8s)
@@ -185,6 +188,16 @@ Installing CMake 3.22.1 in C:\Users\DEEPAK SHARMA\AppData\Local\Android\Sdk\cmak
 "Install CMake 3.22.1 v.3.22.1" complete.
 "Install CMake 3.22.1 v.3.22.1" finished.
 ```
+
+* Next Step 
+<!-- Open the flutter release apk path -->
+[Open Flutter Release APK](user_envato/build/app/outputs/flutter-apk/app-release.apk)
+
+> For Publishing You NEED AAB (Google play Console > android)
+```bash
+flutter build appbundle -t lib/env/main_prod.dart --release
+```
+
 # restart_tagxi
 
 A new Flutter project.

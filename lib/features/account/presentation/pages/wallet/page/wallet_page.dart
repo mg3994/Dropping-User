@@ -327,24 +327,25 @@ class WalletHistoryPage extends StatelessWidget {
                     top: size.width * 0.45,
                     left: size.width * 0.05,
                     right: size.width * 0.05,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(
-                          size.width * 0.02,
-                          size.width * 0.025,
-                          size.width * 0.02,
-                          size.width * 0.025),
-                      width: size.width * 0.7,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        borderRadius: BorderRadius.circular(4),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Theme.of(context).shadowColor,
-                              offset: const Offset(0, 4),
-                              spreadRadius: 0,
-                              blurRadius: 5)
-                        ],
-                      ),
+                    // child: 
+                    // Container(
+                    //   padding: EdgeInsets.fromLTRB(
+                    //       size.width * 0.02,
+                    //       size.width * 0.025,
+                    //       size.width * 0.02,
+                    //       size.width * 0.025),
+                    //   width: size.width * 0.7,
+                    //   decoration: BoxDecoration(
+                    //     color: Theme.of(context).scaffoldBackgroundColor,
+                    //     borderRadius: BorderRadius.circular(4),
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //           color: Theme.of(context).shadowColor,
+                    //           offset: const Offset(0, 4),
+                    //           spreadRadius: 0,
+                    //           blurRadius: 5)
+                    //     ],
+                    //   ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -366,37 +367,52 @@ class WalletHistoryPage extends StatelessWidget {
                                     return AddMoneyWalletWidget(cont :context);
                                   });
                             },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                MyText(
-                                    text:
-                                        AppLocalizations.of(context)!.addMoney,
-                                    textStyle: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .copyWith(
+                            child: Container(
+                              padding: const EdgeInsets.all(2.0),
+                decoration: BoxDecoration(
+                                                       color: Theme.of(context).cardColor,
+
+                  borderRadius: BorderRadius.circular(2.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  MyText(
+                                      text:
+                                          AppLocalizations.of(context)!.addMoney,
+                                      textStyle: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                              color: Theme.of(context)
+                                                  .primaryColorDark,
+                                              fontSize: 16)),
+                                  SizedBox(
+                                    width: size.width * 0.02,
+                                  ),
+                                  Container(
+                                    height: size.width * 0.04,
+                                    width: size.width * 0.04,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
                                             color: Theme.of(context)
-                                                .primaryColorDark,
-                                            fontSize: 16)),
-                                SizedBox(
-                                  width: size.width * 0.02,
-                                ),
-                                Container(
-                                  height: size.width * 0.04,
-                                  width: size.width * 0.04,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                          color: Theme.of(context)
-                                              .primaryColorDark)),
-                                  alignment: Alignment.center,
-                                  child: Icon(Icons.add,
-                                      size: size.width * 0.03,
-                                      color:
-                                          Theme.of(context).primaryColorDark),
-                                ),
-                              ],
+                                                .primaryColorDark)),
+                                    alignment: Alignment.center,
+                                    child: Icon(Icons.add,
+                                        size: size.width * 0.03,
+                                        color:
+                                            Theme.of(context).primaryColorDark),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           if (context.read<AccBloc>().userData != null &&
@@ -424,40 +440,57 @@ class WalletHistoryPage extends StatelessWidget {
                                       return WalletTransferMoneyWidget(cont:context, arg: arg);
                                     });
                               },
-                              child: Row(
-                                children: [
-                                  MyText(
-                                      text: AppLocalizations.of(context)!
-                                          .transferMoney,
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
+                              child: Container(
+                              padding: const EdgeInsets.all(2.0),
+                decoration: BoxDecoration(
+                                                       color: Theme.of(context).cardColor,
+
+                  borderRadius: BorderRadius.circular(2.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                              
+                                child: Row(
+                                  children: [
+                                    MyText(
+                                        text: AppLocalizations.of(context)!
+                                            .transferMoney,
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .copyWith(
+                                                color: Theme.of(context)
+                                                    .primaryColorDark,fontSize: 16)),
+                                    SizedBox(
+                                      width: size.width * 0.02,
+                                    ),
+                                    Container(
+                                      height: size.width * 0.04,
+                                      width: size.width * 0.04,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
                                               color: Theme.of(context)
-                                                  .primaryColorDark,fontSize: 16)),
-                                  SizedBox(
-                                    width: size.width * 0.02,
-                                  ),
-                                  Container(
-                                    height: size.width * 0.04,
-                                    width: size.width * 0.04,
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                            color: Theme.of(context)
-                                                .primaryColorDark)),
-                                    alignment: Alignment.center,
-                                    child: Icon(Icons.arrow_downward,
-                                        size: size.width * 0.03,
-                                        color:
-                                            Theme.of(context).primaryColorDark),
-                                  ),
-                                ],
+                                                  .primaryColorDark)),
+                                      alignment: Alignment.center,
+                                      child: Icon(Icons.arrow_downward,
+                                          size: size.width * 0.03,
+                                          color:
+                                              Theme.of(context).primaryColorDark),
+                                    ),
+                                  ],
+                                ),
                               ),
                             )
                         ],
                       ),
-                    )),
+                    // ),
+                    ),
               ],
             ),
           );

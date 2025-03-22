@@ -243,7 +243,7 @@ class PushNotification {
 // FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
     await fltNotification.initialize(initSetting);
 
-    await FirebaseMessaging.instance.requestPermission();
+    await FirebaseMessaging.instance.requestPermission(); // TODO: IF already requested dont ask again
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       RemoteNotification? notification = message.notification;
