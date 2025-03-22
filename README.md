@@ -191,12 +191,14 @@ Installing CMake 3.22.1 in C:\Users\DEEPAK SHARMA\AppData\Local\Android\Sdk\cmak
 
 * Next Step 
 <!-- Open the flutter release apk path -->
-[Open Flutter Release APK](user_envato/build/app/outputs/flutter-apk/app-release.apk)
+[Open Flutter Release APK](build/app/outputs/flutter-apk/app-release.apk)
 
-> For Publishing You NEED AAB (Google play Console > android)
+> For Publishing You NEED AAB =>(.aab) (Google play Console > android)
 ```bash
 flutter build appbundle -t lib/env/main_prod.dart --release
 ```
+<!-- Open the .aab file path -->
+[Open Flutter Release AAB](build/app/outputs/bundle/release/app-release.aab)
 
 # restart_tagxi
 
